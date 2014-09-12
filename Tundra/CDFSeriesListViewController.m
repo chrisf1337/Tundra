@@ -33,4 +33,9 @@
     return self;
 }
 
+- (IBAction)addSeries:(id)sender
+{
+    [self.mainWindowController showAddSheet];
+}
+
 @end

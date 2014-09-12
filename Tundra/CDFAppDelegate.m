@@ -20,14 +20,20 @@
 {
     // Insert code here to initialize your application
     self.mainWindowController = [[CDFMainWindowController alloc] init];
+    
     self.mainWindowController.managedObjectContext = self.managedObjectContext;
     self.mainWindowController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    
     self.mainWindowController.seriesListViewController = [[CDFSeriesListViewController alloc] init];
     self.mainWindowController.seriesListViewController.managedObjectContext = self.managedObjectContext;
     self.mainWindowController.seriesListViewController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.seriesListViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    
+    self.mainWindowController.seriesListViewController.mainWindowController = self.mainWindowController;
+    
     [self.mainWindowController showWindow:self];
+    self.window = self.mainWindowController.window;
     NSLog(@"%@", self.managedObjectContext.undoManager);
     
     NSError *error;

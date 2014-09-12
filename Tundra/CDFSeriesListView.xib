@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CDFSeriesListViewController">
             <connections>
+                <outlet property="seriesInfoArrayController" destination="fnw-el-TGs" id="Ts7-pu-2MH"/>
+                <outlet property="tableView" destination="3vf-fF-Eg1" id="Nif-fO-foX"/>
                 <outlet property="view" destination="QaA-WU-57p" id="KsO-cT-trg"/>
             </connections>
         </customObject>
@@ -15,10 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="646" height="550"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-kr-ojt">
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-kr-ojt">
                     <rect key="frame" x="20" y="56" width="606" height="474"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="HEL-QG-Vm3">
+                    <clipView key="contentView" id="HEL-QG-Vm3">
                         <rect key="frame" x="1" y="17" width="604" height="456"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -126,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-X3-xZn">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JEm-X3-xZn">
                     <rect key="frame" x="14" y="13" width="90" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
@@ -136,16 +138,32 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="addSeries:" target="-2" id="IN3-Kb-wL3"/>
+                    </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Si-fm-ccG">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Si-fm-ccG">
                     <rect key="frame" x="104" y="13" width="90" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Remove" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lgA-TH-rfA">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="remove:" target="fnw-el-TGs" id="1DL-P6-SwV"/>
+                    </connections>
                 </button>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="uU6-kr-ojt" secondAttribute="trailing" constant="20" id="3se-TA-Ohy"/>
+                <constraint firstItem="uU6-kr-ojt" firstAttribute="top" secondItem="QaA-WU-57p" secondAttribute="top" constant="20" id="81N-sf-08D"/>
+                <constraint firstItem="JEm-X3-xZn" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="UML-VL-7S2"/>
+                <constraint firstItem="uU6-kr-ojt" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="iH6-Eu-dnM"/>
+                <constraint firstItem="4Si-fm-ccG" firstAttribute="leading" secondItem="JEm-X3-xZn" secondAttribute="trailing" constant="12" id="lKg-1d-2uP"/>
+                <constraint firstAttribute="bottom" secondItem="4Si-fm-ccG" secondAttribute="bottom" constant="20" id="mhu-7b-SV7"/>
+                <constraint firstAttribute="bottom" secondItem="uU6-kr-ojt" secondAttribute="bottom" constant="56" id="px7-yR-ib5"/>
+                <constraint firstAttribute="bottom" secondItem="JEm-X3-xZn" secondAttribute="bottom" constant="20" id="twA-Tv-WVS"/>
+            </constraints>
         </customView>
         <arrayController mode="entity" entityName="SeriesInfo" automaticallyPreparesContent="YES" id="fnw-el-TGs" userLabel="SeriesInfo" customClass="CDFSeriesInfoArrayController">
             <connections>

@@ -11,6 +11,8 @@
 #import "CDFSeriesListViewController.h"
 #import "SeriesInfo.h"
 
+@class CDFSeriesListViewController;
+
 @interface CDFMainWindowController : NSWindowController <NSWindowDelegate>
 
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -19,13 +21,11 @@
 
 @property (nonatomic) CDFSeriesListViewController *seriesListViewController;
 
-@property (weak) IBOutlet NSTableView *tableView;
 @property (nonatomic) IBOutlet NSWindow *addSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
 @property (strong) IBOutlet NSView *searchView;
 
-- (IBAction)addSeriesOld:(id)sender;
-- (IBAction)showAddSheet:(id)sender;
+- (void)showAddSheet;
 - (IBAction)addSeries:(id)sender;
 
 @end
