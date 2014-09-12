@@ -24,6 +24,7 @@
 		8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8959308719BE0CC200976214 /* CDFMainWindowController.xib */; };
 		8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */; };
 		896CDAAA19C2BFCF00A6734D /* CDFSeriesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */; };
+		89BF17D919C35B2D00394973 /* CDFSeriesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesInfoArrayController.m; sourceTree = "<group>"; };
 		896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesListViewController.h; sourceTree = "<group>"; };
 		896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesListViewController.m; sourceTree = "<group>"; };
+		89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFSeriesListView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */,
 				8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */,
 				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
+				89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */,
 				896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */,
 				896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */,
 				8959305919BCDF7100976214 /* CDFAppDelegate.h */,
@@ -260,6 +263,7 @@
 				8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */,
 				8959305219BCDF7100976214 /* InfoPlist.strings in Resources */,
 				8959306319BCDF7200976214 /* Images.xcassets in Resources */,
+				89BF17D919C35B2D00394973 /* CDFSeriesListView.xib in Resources */,
 				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
 				8959305E19BCDF7200976214 /* MainMenu.xib in Resources */,
 			);

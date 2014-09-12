@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CDFSeriesInfoArrayController.h"
+#import "CDFSeriesListViewController.h"
 #import "SeriesInfo.h"
 
 @interface CDFMainWindowController : NSWindowController <NSWindowDelegate>
@@ -16,7 +17,8 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoArrayController;
+@property (nonatomic) CDFSeriesListViewController *seriesListViewController;
+
 @property (weak) IBOutlet NSTableView *tableView;
 @property (nonatomic) IBOutlet NSWindow *addSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;

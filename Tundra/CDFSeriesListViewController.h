@@ -10,4 +10,8 @@
 
 @interface CDFSeriesListViewController : NSViewController
 
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

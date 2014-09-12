@@ -23,4 +23,14 @@
     return self;
 }
 
+- (instancetype)init
+{
+    self = [super initWithNibName:@"CDFSeriesListView" bundle:nil];
+    if (self)
+    {
+        self.title = @"Series List View";
+    }
+    return self;
+}
+
 @end

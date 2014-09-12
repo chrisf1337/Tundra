@@ -8,6 +8,7 @@
 
 #import "CDFAppDelegate.h"
 #import "CDFMainWindowController.h"
+#import "CDFSeriesListViewController.h"
 
 @implementation CDFAppDelegate
 
@@ -22,6 +23,10 @@
     self.mainWindowController.managedObjectContext = self.managedObjectContext;
     self.mainWindowController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    self.mainWindowController.seriesListViewController = [[CDFSeriesListViewController alloc] init];
+    self.mainWindowController.seriesListViewController.managedObjectContext = self.managedObjectContext;
+    self.mainWindowController.seriesListViewController.managedObjectModel = self.managedObjectModel;
+    self.mainWindowController.seriesListViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     [self.mainWindowController showWindow:self];
     NSLog(@"%@", self.managedObjectContext.undoManager);
     
