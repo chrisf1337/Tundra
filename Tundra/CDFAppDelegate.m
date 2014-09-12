@@ -7,6 +7,7 @@
 //
 
 #import "CDFAppDelegate.h"
+#import "CDFMainWindowController.h"
 
 @implementation CDFAppDelegate
 
@@ -17,6 +18,24 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    self.mainWindowController = [[CDFMainWindowController alloc] init];
+    self.mainWindowController.managedObjectContext = self.managedObjectContext;
+    self.mainWindowController.managedObjectModel = self.managedObjectModel;
+    self.mainWindowController.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    [self.mainWindowController showWindow:self];
+    NSLog(@"%@", self.managedObjectContext.undoManager);
+    
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (SeriesInfo *info in fetchedObjects)
+    {
+        NSLog(@"Name: %@", info.name);
+        NSLog(@"Eps watched: %@", info.episodesWatched);
+    }
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.Tundra" in the user's Application Support directory.

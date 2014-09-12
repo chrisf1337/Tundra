@@ -19,6 +19,11 @@
 		8959306B19BCDF7200976214 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959304719BCDF7100976214 /* Cocoa.framework */; };
 		8959307319BCDF7200976214 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8959307119BCDF7200976214 /* InfoPlist.strings */; };
 		8959307519BCDF7200976214 /* TundraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959307419BCDF7200976214 /* TundraTests.m */; };
+		8959308219BD7CA000976214 /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308119BD7CA000976214 /* SeriesInfo.m */; };
+		8959308819BE0CC200976214 /* CDFMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308619BE0CC200976214 /* CDFMainWindowController.m */; };
+		8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8959308719BE0CC200976214 /* CDFMainWindowController.xib */; };
+		8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */; };
+		896CDAAA19C2BFCF00A6734D /* CDFSeriesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,15 @@
 		8959307019BCDF7200976214 /* TundraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TundraTests-Info.plist"; sourceTree = "<group>"; };
 		8959307219BCDF7200976214 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8959307419BCDF7200976214 /* TundraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TundraTests.m; sourceTree = "<group>"; };
+		8959308019BD7CA000976214 /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
+		8959308119BD7CA000976214 /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
+		8959308519BE0CC200976214 /* CDFMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFMainWindowController.h; sourceTree = "<group>"; };
+		8959308619BE0CC200976214 /* CDFMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFMainWindowController.m; sourceTree = "<group>"; };
+		8959308719BE0CC200976214 /* CDFMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFMainWindowController.xib; sourceTree = "<group>"; };
+		8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesInfoArrayController.h; sourceTree = "<group>"; };
+		8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesInfoArrayController.m; sourceTree = "<group>"; };
+		896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesListViewController.h; sourceTree = "<group>"; };
+		896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +131,20 @@
 		8959304D19BCDF7100976214 /* Tundra */ = {
 			isa = PBXGroup;
 			children = (
+				8959308519BE0CC200976214 /* CDFMainWindowController.h */,
+				8959308619BE0CC200976214 /* CDFMainWindowController.m */,
+				8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */,
+				8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */,
+				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
+				896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */,
+				896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */,
 				8959305919BCDF7100976214 /* CDFAppDelegate.h */,
 				8959305A19BCDF7100976214 /* CDFAppDelegate.m */,
 				8959305C19BCDF7200976214 /* MainMenu.xib */,
 				8959306219BCDF7200976214 /* Images.xcassets */,
 				8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */,
+				8959308019BD7CA000976214 /* SeriesInfo.h */,
+				8959308119BD7CA000976214 /* SeriesInfo.m */,
 				8959304E19BCDF7100976214 /* Supporting Files */,
 			);
 			path = Tundra;
@@ -234,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */,
 				8959305219BCDF7100976214 /* InfoPlist.strings in Resources */,
 				8959306319BCDF7200976214 /* Images.xcassets in Resources */,
 				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
@@ -256,9 +280,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */,
 				8959306119BCDF7200976214 /* Tundra.xcdatamodeld in Sources */,
 				8959305B19BCDF7100976214 /* CDFAppDelegate.m in Sources */,
+				8959308219BD7CA000976214 /* SeriesInfo.m in Sources */,
+				896CDAAA19C2BFCF00A6734D /* CDFSeriesListViewController.m in Sources */,
 				8959305419BCDF7100976214 /* main.m in Sources */,
+				8959308819BE0CC200976214 /* CDFMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +499,7 @@
 				8959307A19BCDF7200976214 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8959307B19BCDF7200976214 /* Build configuration list for PBXNativeTarget "TundraTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +508,7 @@
 				8959307D19BCDF7200976214 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

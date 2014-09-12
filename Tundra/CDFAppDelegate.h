@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CDFMainWindowController.h"
+#import "CDFSeriesInfoArrayController.h"
 
 @interface CDFAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -15,6 +17,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic) CDFMainWindowController *mainWindowController;
 
 - (IBAction)saveAction:(id)sender;
 
