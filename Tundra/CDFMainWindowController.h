@@ -9,17 +9,20 @@
 #import <Cocoa/Cocoa.h>
 #import "CDFSeriesInfoArrayController.h"
 #import "CDFSeriesListViewController.h"
+#import "CDFSeriesSearchViewController.h"
 #import "SeriesInfo.h"
 
 @class CDFSeriesListViewController;
+@class CDFSeriesSearchViewController;
 
-@interface CDFMainWindowController : NSWindowController <NSWindowDelegate>
+@interface CDFMainWindowController : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate>
 
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic) CDFSeriesListViewController *seriesListViewController;
+@property (nonatomic) CDFSeriesSearchViewController *seriesSearchViewController;
 
 @property (nonatomic) IBOutlet NSWindow *addSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
@@ -28,6 +31,9 @@
 @property (weak) IBOutlet NSView *sidebarView;
 @property (weak) IBOutlet NSView *activeView;
 @property (weak) IBOutlet NSBox *box;
+@property (weak) IBOutlet NSOutlineView *outlineView;
+
+@property NSMutableArray *outlineSources;
 
 - (void)showAddSheet;
 - (IBAction)addSeries:(id)sender;

@@ -21,5 +21,6 @@
 @property (nonatomic) CDFMainWindowController *mainWindowController;
 
 - (IBAction)saveAction:(id)sender;
+- (IBAction)addSeries:(id)sender;
 
 @end

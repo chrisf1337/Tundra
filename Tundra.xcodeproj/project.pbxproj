@@ -25,6 +25,9 @@
 		8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */; };
 		896CDAAA19C2BFCF00A6734D /* CDFSeriesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */; };
 		89BF17D919C35B2D00394973 /* CDFSeriesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */; };
+		89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */; };
+		89BF17E419C4B5C300394973 /* CDFSeriesSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17E219C4B5C300394973 /* CDFSeriesSearchViewController.m */; };
+		89BF17E519C4B5C300394973 /* CDFSeriesSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BF17E319C4B5C300394973 /* CDFSeriesSearchView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,11 @@
 		896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesListViewController.h; sourceTree = "<group>"; };
 		896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesListViewController.m; sourceTree = "<group>"; };
 		89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFSeriesListView.xib; sourceTree = "<group>"; };
+		89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOutlineView+Additions.h"; sourceTree = "<group>"; };
+		89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOutlineView+Additions.m"; sourceTree = "<group>"; };
+		89BF17E119C4B5C300394973 /* CDFSeriesSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesSearchViewController.h; sourceTree = "<group>"; };
+		89BF17E219C4B5C300394973 /* CDFSeriesSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesSearchViewController.m; sourceTree = "<group>"; };
+		89BF17E319C4B5C300394973 /* CDFSeriesSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFSeriesSearchView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,8 @@
 		8959304D19BCDF7100976214 /* Tundra */ = {
 			isa = PBXGroup;
 			children = (
+				89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */,
+				89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */,
 				8959308519BE0CC200976214 /* CDFMainWindowController.h */,
 				8959308619BE0CC200976214 /* CDFMainWindowController.m */,
 				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
@@ -143,6 +153,9 @@
 				896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */,
 				8959305919BCDF7100976214 /* CDFAppDelegate.h */,
 				8959305A19BCDF7100976214 /* CDFAppDelegate.m */,
+				89BF17E119C4B5C300394973 /* CDFSeriesSearchViewController.h */,
+				89BF17E219C4B5C300394973 /* CDFSeriesSearchViewController.m */,
+				89BF17E319C4B5C300394973 /* CDFSeriesSearchView.xib */,
 				8959305C19BCDF7200976214 /* MainMenu.xib */,
 				8959306219BCDF7200976214 /* Images.xcassets */,
 				8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */,
@@ -266,6 +279,7 @@
 				89BF17D919C35B2D00394973 /* CDFSeriesListView.xib in Resources */,
 				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
 				8959305E19BCDF7200976214 /* MainMenu.xib in Resources */,
+				89BF17E519C4B5C300394973 /* CDFSeriesSearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +300,8 @@
 			files = (
 				8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */,
 				8959306119BCDF7200976214 /* Tundra.xcdatamodeld in Sources */,
+				89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */,
+				89BF17E419C4B5C300394973 /* CDFSeriesSearchViewController.m in Sources */,
 				8959305B19BCDF7100976214 /* CDFAppDelegate.m in Sources */,
 				8959308219BD7CA000976214 /* SeriesInfo.m in Sources */,
 				896CDAAA19C2BFCF00A6734D /* CDFSeriesListViewController.m in Sources */,

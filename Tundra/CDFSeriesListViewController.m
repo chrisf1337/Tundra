@@ -54,6 +54,7 @@
 {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    [self.seriesInfoArrayController rearrangeObjects];
 }
 
 @end

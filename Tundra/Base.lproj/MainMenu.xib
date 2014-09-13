@@ -63,7 +63,13 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                            <menuItem title="Add Series" keyEquivalent="n" id="Dne-Dy-kGb">
+                                <connections>
+                                    <action selector="addSeries:" target="Voe-Tx-rLC" id="RNa-3H-9yF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="New" id="Was-JA-tGl">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
                                 </connections>

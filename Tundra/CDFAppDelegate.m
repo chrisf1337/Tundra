@@ -9,6 +9,7 @@
 #import "CDFAppDelegate.h"
 #import "CDFMainWindowController.h"
 #import "CDFSeriesListViewController.h"
+#import "CDFSeriesSearchViewController.h"
 
 @implementation CDFAppDelegate
 
@@ -30,7 +31,13 @@
     self.mainWindowController.seriesListViewController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.seriesListViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     
+    self.mainWindowController.seriesSearchViewController = [[CDFSeriesSearchViewController alloc] init];
+    self.mainWindowController.seriesSearchViewController.managedObjectContext = self.managedObjectContext;
+    self.mainWindowController.seriesSearchViewController.managedObjectModel = self.managedObjectModel;
+    self.mainWindowController.seriesSearchViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    
     self.mainWindowController.seriesListViewController.mainWindowController = self.mainWindowController;
+    self.mainWindowController.seriesSearchViewController.mainWindowController = self.mainWindowController;
     
     [self.mainWindowController showWindow:self];
     self.window = self.mainWindowController.window;
@@ -208,6 +215,11 @@
     }
 
     return NSTerminateNow;
+}
+
+- (IBAction)addSeries:(id)sender
+{
+    [self.mainWindowController showAddSheet];
 }
 
 @end
