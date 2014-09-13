@@ -11,7 +11,7 @@
 
 @class CDFMainWindowController;
 
-@interface CDFSeriesListViewController : NSViewController
+@interface CDFSeriesListViewController : NSViewController <NSTableViewDelegate>
 
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -22,5 +22,6 @@
 @property (nonatomic, weak) CDFMainWindowController *mainWindowController;
 
 - (IBAction)addSeries:(id)sender;
+- (void)sortList;
 
 @end

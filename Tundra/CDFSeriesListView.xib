@@ -110,6 +110,8 @@
                                 <connections>
                                     <binding destination="fnw-el-TGs" name="content" keyPath="arrangedObjects" id="ufu-fe-bIc"/>
                                     <binding destination="fnw-el-TGs" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="ufu-fe-bIc" id="zEk-JR-aBg"/>
+                                    <binding destination="fnw-el-TGs" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="zEk-JR-aBg" id="Qu6-33-Il0"/>
+                                    <outlet property="delegate" destination="-2" id="JNr-bR-nsE"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -151,6 +153,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="remove:" target="fnw-el-TGs" id="1DL-P6-SwV"/>
+                        <binding destination="fnw-el-TGs" name="enabled" keyPath="canRemove" id="Kh4-Ow-Uck"/>
                     </connections>
                 </button>
             </subviews>

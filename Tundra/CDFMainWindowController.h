@@ -24,6 +24,10 @@
 @property (nonatomic) IBOutlet NSWindow *addSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
 @property (strong) IBOutlet NSView *searchView;
+@property (weak) IBOutlet NSSplitView *splitView;
+@property (weak) IBOutlet NSView *sidebarView;
+@property (weak) IBOutlet NSView *activeView;
+@property (weak) IBOutlet NSBox *box;
 
 - (void)showAddSheet;
 - (IBAction)addSeries:(id)sender;

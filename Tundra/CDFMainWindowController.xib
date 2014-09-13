@@ -6,8 +6,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="CDFMainWindowController">
             <connections>
+                <outlet property="activeView" destination="bcV-rv-dPz" id="oBl-tI-Cq5"/>
                 <outlet property="addSheet" destination="kdF-PX-z6V" id="ktc-h9-p8x"/>
                 <outlet property="addedSeriesName" destination="FjO-uS-x3J" id="Rou-2z-yCK"/>
+                <outlet property="box" destination="1SQ-2f-S40" id="LAV-tI-I68"/>
+                <outlet property="sidebarView" destination="yj7-oY-Gs8" id="w8v-TI-BsL"/>
+                <outlet property="splitView" destination="7Vu-ER-9cW" id="PLO-ke-y1D"/>
                 <outlet property="window" destination="5nh-Od-xvF" id="bp0-2A-Nr1"/>
             </connections>
         </customObject>
@@ -16,11 +20,55 @@
         <window title="Tundra" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="5nh-Od-xvF">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="646" height="550"/>
+            <rect key="contentRect" x="196" y="240" width="744" height="550"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="AgY-HJ-c67">
-                <rect key="frame" x="0.0" y="0.0" width="646" height="550"/>
+                <rect key="frame" x="0.0" y="0.0" width="744" height="550"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vu-ER-9cW">
+                        <rect key="frame" x="0.0" y="0.0" width="744" height="550"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" id="yj7-oY-Gs8">
+                                <rect key="frame" x="0.0" y="0.0" width="181" height="550"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </customView>
+                            <customView id="bcV-rv-dPz">
+                                <rect key="frame" x="182" y="0.0" width="562" height="550"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <box autoresizesSubviews="NO" title="Box" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1SQ-2f-S40">
+                                        <rect key="frame" x="-3" y="-4" width="568" height="556"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <view key="contentView">
+                                            <rect key="frame" x="0.0" y="0.0" width="568" height="556"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </box>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1SQ-2f-S40" secondAttribute="bottom" id="98o-tj-9o9"/>
+                                    <constraint firstItem="1SQ-2f-S40" firstAttribute="top" secondItem="bcV-rv-dPz" secondAttribute="top" id="UDg-aW-ppi"/>
+                                    <constraint firstAttribute="trailing" secondItem="1SQ-2f-S40" secondAttribute="trailing" id="r40-k2-dQQ"/>
+                                    <constraint firstItem="1SQ-2f-S40" firstAttribute="leading" secondItem="bcV-rv-dPz" secondAttribute="leading" id="tbd-65-5dR"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7Vu-ER-9cW" firstAttribute="top" secondItem="AgY-HJ-c67" secondAttribute="top" id="3RS-Xd-fc8"/>
+                    <constraint firstAttribute="bottom" secondItem="7Vu-ER-9cW" secondAttribute="bottom" id="5ys-NT-5ux"/>
+                    <constraint firstItem="7Vu-ER-9cW" firstAttribute="leading" secondItem="AgY-HJ-c67" secondAttribute="leading" id="Yqe-MJ-Y2N"/>
+                    <constraint firstAttribute="trailing" secondItem="7Vu-ER-9cW" secondAttribute="trailing" id="kQ2-cC-g46"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="WPc-51-ScE"/>
@@ -29,10 +77,10 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="kdF-PX-z6V">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="207" width="480" height="97"/>
+            <rect key="contentRect" x="196" y="207" width="480" height="115"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="DRJ-29-8H5">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="115"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-Vk-08f">
@@ -44,6 +92,9 @@
                         <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Iat-Ok-uYI">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <action selector="addSeries:" target="-2" id="jGa-XM-d0a"/>
@@ -64,7 +115,7 @@ Gw
                         </buttonCell>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FjO-uS-x3J">
-                        <rect key="frame" x="20" y="55" width="440" height="22"/>
+                        <rect key="frame" x="20" y="73" width="440" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Name of series" drawsBackground="YES" id="8X1-Pb-XW2">
                             <font key="font" metaFont="system"/>

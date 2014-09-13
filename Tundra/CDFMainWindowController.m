@@ -34,10 +34,7 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-//    [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-//    [self.window setContentView:self.searchView];
-    self.window.contentView = self.seriesListViewController.view;
+    self.box.contentView = self.seriesListViewController.view;
 }
 
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window

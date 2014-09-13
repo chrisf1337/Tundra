@@ -135,9 +135,9 @@
 			children = (
 				8959308519BE0CC200976214 /* CDFMainWindowController.h */,
 				8959308619BE0CC200976214 /* CDFMainWindowController.m */,
+				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
 				8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */,
 				8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */,
-				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
 				89BF17D819C35B2D00394973 /* CDFSeriesListView.xib */,
 				896CDAA819C2BFCF00A6734D /* CDFSeriesListViewController.h */,
 				896CDAA919C2BFCF00A6734D /* CDFSeriesListViewController.m */,
