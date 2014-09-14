@@ -39,6 +39,9 @@
     self.mainWindowController.seriesListViewController.mainWindowController = self.mainWindowController;
     self.mainWindowController.seriesSearchViewController.mainWindowController = self.mainWindowController;
     
+    self.mainWindowController.viewControllers = @[self.mainWindowController.seriesListViewController,
+                                                  self.mainWindowController.seriesSearchViewController];
+    
     [self.mainWindowController showWindow:self];
     self.window = self.mainWindowController.window;
     NSLog(@"%@", self.managedObjectContext.undoManager);
@@ -120,7 +123,11 @@
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Tundra.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    NSDictionary *options = nil;
+//    options = [NSDictionary dictionaryWithObjectsAndKeys:
+//                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+//                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

@@ -7,6 +7,8 @@
 //
 
 #import "CDFSeriesListViewController.h"
+#import "CDFMainWindowController.h"
+
 
 @interface CDFSeriesListViewController ()
 
@@ -55,6 +57,12 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [self.seriesInfoArrayController rearrangeObjects];
+}
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
+    NSLog(@"control:textShouldEndEditing: from %@", control);
+    return YES;
 }
 
 @end

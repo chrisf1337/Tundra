@@ -7,20 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CDFMainWindowController.h"
+#import "CDFManagingViewController.h"
+#import "CDFSeriesInfoArrayController.h"
 
-@class CDFMainWindowController;
-
-@interface CDFSeriesListViewController : NSViewController <NSTableViewDelegate>
-
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@interface CDFSeriesListViewController : CDFManagingViewController <NSTableViewDelegate, NSControlTextEditingDelegate>
 
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoArrayController;
 @property (weak) IBOutlet NSTableView *tableView;
-
-@property (nonatomic, weak) CDFMainWindowController *mainWindowController;
 
 - (IBAction)addSeries:(id)sender;
 - (void)sortList;

@@ -7,16 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CDFMainWindowController.h"
+#import "CDFManagingViewController.h"
 
-@class CDFMainWindowController;
+//@class CDFMainWindowController;
 
-@interface CDFSeriesSearchViewController : NSViewController
-
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-@property (nonatomic, weak) CDFMainWindowController *mainWindowController;
+@interface CDFSeriesSearchViewController : CDFManagingViewController
 
 @end

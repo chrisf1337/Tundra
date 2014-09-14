@@ -8,6 +8,7 @@
 
 #import "CDFMainWindowController.h"
 #import "NSOutlineView+Additions.h"
+#import "CDFManagingViewController.h"
 
 @interface CDFMainWindowController ()
 
@@ -76,6 +77,11 @@
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
 {
     return [self.outlineView makeViewWithIdentifier:@"DataCell" owner:self];
+}
+
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification
+{
+    self.box.contentView = ((CDFManagingViewController *)(self.viewControllers[self.outlineView.selectedRow])).view;
 }
 
 @end

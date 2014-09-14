@@ -12,9 +12,6 @@
 #import "CDFSeriesSearchViewController.h"
 #import "SeriesInfo.h"
 
-@class CDFSeriesListViewController;
-@class CDFSeriesSearchViewController;
-
 @interface CDFMainWindowController : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate>
 
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -23,6 +20,8 @@
 
 @property (nonatomic) CDFSeriesListViewController *seriesListViewController;
 @property (nonatomic) CDFSeriesSearchViewController *seriesSearchViewController;
+
+@property (nonatomic) NSArray *viewControllers;
 
 @property (nonatomic) IBOutlet NSWindow *addSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
