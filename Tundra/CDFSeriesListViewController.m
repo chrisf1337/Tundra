@@ -39,6 +39,7 @@
 {
     [super loadView];
     [self sortList];
+    NSLog(@"%@", self.tableView.sortDescriptors);
 }
 
 - (IBAction)addSeries:(id)sender
@@ -46,23 +47,11 @@
     [self.mainWindowController showAddSheet];
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-    NSLog(@"tablewView:shouldEditTableColumn:row:");
-    return YES;
-}
-
 - (void)sortList
 {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     [self.seriesInfoArrayController rearrangeObjects];
-}
-
-- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
-{
-    NSLog(@"control:textShouldEndEditing: from %@", control);
-    return YES;
 }
 
 @end

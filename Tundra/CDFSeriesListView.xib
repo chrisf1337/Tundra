@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="177" minWidth="40" maxWidth="1000" id="97d-0x-JQ2">
+                                    <tableColumn identifier="name" width="177" minWidth="40" maxWidth="1000" id="97d-0x-JQ2">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +49,7 @@
                                                 <rect key="frame" x="1" y="1" width="177" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-IN-Y3c">
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-IN-Y3c">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="WdU-9f-SsE">
@@ -69,7 +69,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="104" minWidth="40" maxWidth="1000" id="Hdl-Jt-J5q">
+                                    <tableColumn identifier="episodesWatched" width="104" minWidth="40" maxWidth="1000" id="Hdl-Jt-J5q">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Episodes Watched">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -87,7 +87,7 @@
                                                 <rect key="frame" x="181" y="1" width="104" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-SW-Quc">
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="101" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-SW-Quc">
                                                         <rect key="frame" x="0.0" y="0.0" width="104" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="CRP-Ex-AqV">
@@ -98,6 +98,7 @@
                                                         </textFieldCell>
                                                         <connections>
                                                             <binding destination="lzA-Kf-Ili" name="value" keyPath="objectValue.episodesWatched" id="zCj-vg-ObN"/>
+                                                            <outlet property="delegate" destination="-2" id="Y3w-b5-dze"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -107,7 +108,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="316" minWidth="10" maxWidth="3.4028234663852886e+38" id="yj0-er-YnO">
+                                    <tableColumn identifier="totalEpisodes" width="316" minWidth="10" maxWidth="3.4028234663852886e+38" id="yj0-er-YnO">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Total Episodes">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -125,7 +126,7 @@
                                                 <rect key="frame" x="288" y="1" width="316" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buv-NX-jWR">
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="102" translatesAutoresizingMaskIntoConstraints="NO" id="buv-NX-jWR">
                                                         <rect key="frame" x="0.0" y="0.0" width="316" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="JfH-CT-Sa5">
@@ -136,6 +137,7 @@
                                                         </textFieldCell>
                                                         <connections>
                                                             <binding destination="MLp-4z-yFl" name="value" keyPath="objectValue.totalEpisodes" id="ObQ-gv-ZQf"/>
+                                                            <outlet property="delegate" destination="-2" id="8iI-Mf-Ek6"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -210,7 +212,7 @@ CA
                 <constraint firstAttribute="bottom" secondItem="JEm-X3-xZn" secondAttribute="bottom" constant="20" id="twA-Tv-WVS"/>
             </constraints>
         </customView>
-        <arrayController mode="entity" entityName="SeriesInfo" automaticallyPreparesContent="YES" id="fnw-el-TGs" userLabel="SeriesInfo" customClass="CDFSeriesInfoArrayController">
+        <arrayController mode="entity" entityName="SeriesInfo" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="fnw-el-TGs" userLabel="SeriesInfo" customClass="CDFSeriesInfoArrayController">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="JD0-8J-unu"/>
             </connections>

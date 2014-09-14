@@ -69,7 +69,6 @@
     SeriesInfo *newSeries = [self.seriesListViewController.seriesInfoArrayController newObject];
     newSeries.name = self.addedSeriesName.stringValue;
     [self.seriesListViewController.seriesInfoArrayController addObject:newSeries];
-    [self.seriesListViewController.seriesInfoArrayController rearrangeObjects];
     NSUInteger row = [[self.seriesListViewController.seriesInfoArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
     [self.seriesListViewController.tableView editColumn:1 row:row withEvent:nil select:YES];
 }

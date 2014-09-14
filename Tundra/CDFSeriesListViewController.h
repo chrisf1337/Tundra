@@ -10,7 +10,7 @@
 #import "CDFManagingViewController.h"
 #import "CDFSeriesInfoArrayController.h"
 
-@interface CDFSeriesListViewController : CDFManagingViewController <NSTableViewDelegate, NSControlTextEditingDelegate>
+@interface CDFSeriesListViewController : CDFManagingViewController <NSTableViewDelegate>
 
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoArrayController;
 @property (weak) IBOutlet NSTableView *tableView;

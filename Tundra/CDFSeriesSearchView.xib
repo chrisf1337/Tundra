@@ -26,10 +26,8 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="oGx-ut-A4j" secondAttribute="trailing" constant="251" id="Chp-EF-3Df"/>
-                <constraint firstItem="oGx-ut-A4j" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="264" id="YPg-f8-bTr"/>
-                <constraint firstItem="oGx-ut-A4j" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="252" id="vrs-FU-AYZ"/>
-                <constraint firstAttribute="bottom" secondItem="oGx-ut-A4j" secondAttribute="bottom" constant="265" id="yC1-wO-Qid"/>
+                <constraint firstAttribute="centerX" secondItem="oGx-ut-A4j" secondAttribute="centerX" constant="-0.5" id="AfV-IR-fYR"/>
+                <constraint firstAttribute="centerY" secondItem="oGx-ut-A4j" secondAttribute="centerY" constant="0.5" id="g7e-MS-jIt"/>
             </constraints>
         </customView>
     </objects>
