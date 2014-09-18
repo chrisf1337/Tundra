@@ -44,18 +44,19 @@
     [super loadView];
     [self sortList];
 //    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
-//    self.animeListRequest = [self performRequestWithURLString:requestString];
-//    
-//    NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
-//    allSeries.entity = entity;
-//    NSError *error = nil;
-//    NSArray *series = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
-//    for (SeriesInfo *info in series)
-//    {
-//        [self.managedObjectContext deleteObject:info];
-//    }
-//    [self.managedObjectContext save:&error];
+    NSString *requestString = @"http://localhost:8000/malappinfo.xml";
+    self.animeListRequest = [self performRequestWithURLString:requestString];
+    
+    NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
+    allSeries.entity = entity;
+    NSError *error = nil;
+    NSArray *series = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
+    for (SeriesInfo *info in series)
+    {
+        [self.managedObjectContext deleteObject:info];
+    }
+    [self.managedObjectContext save:&error];
 }
 
 - (IBAction)addSeries:(id)sender
@@ -66,8 +67,15 @@
 - (void)sortList
 {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-    [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+//    [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    NSLog(@"%@", self.seriesInfoAllArrayController.sortDescriptors);
+    NSLog(@"%@", self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors);
+    self.seriesInfoAllArrayController.sortDescriptors = @[sortDescriptor];
     [self.seriesInfoAllArrayController rearrangeObjects];
+    self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors = @[sortDescriptor];
+    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
+    self.seriesInfoCompletedArrayController.sortDescriptors = @[sortDescriptor];
+    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -107,6 +115,7 @@
             seriesInfo.name = [series objectForKey:@"series_title"];
             seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
             seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
+            seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
         }
         [self.managedObjectContext save:&error];
     }

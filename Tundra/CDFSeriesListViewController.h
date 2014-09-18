@@ -14,6 +14,8 @@
 
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoAllArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCurrentlyWatchingArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCompletedArrayController;
+
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
 

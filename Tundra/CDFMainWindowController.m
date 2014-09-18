@@ -34,9 +34,10 @@
         NSMutableDictionary *item1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"List", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"All", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Currently Watching", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Completed", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Search", @"itemName", [NSMutableArray array], @"children", nil];
-        [[item1 objectForKey:@"children"] addObject:item1_1];
-        [[item1 objectForKey:@"children"] addObject:item1_2];
+        NSMutableArray *item1Children = [item1 objectForKey:@"children"];
+        [item1Children addObjectsFromArray:[NSArray arrayWithObjects:item1_1, item1_2, item1_3, nil]];
         [self.outlineSources addObjectsFromArray:[NSArray arrayWithObjects:item1, item2, nil]];
         
     }
@@ -53,6 +54,7 @@
     
     NSLog(@"%@", [self.outlineView itemAtRow:0]);
     [self.outlineView selectItem:[self.outlineView itemAtRow:0]];
+    [self.outlineView expandItem:[self.outlineView itemAtRow:0]];
 }
 
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
@@ -94,13 +96,16 @@
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoAllArrayController];
-//        [self.seriesListViewController.tableView reloadData];
     }
     else if (self.outlineView.selectedRow == 2)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCurrentlyWatchingArrayController];
-//        [self.seriesListViewController.tableView reloadData];
+    }
+    else if (self.outlineView.selectedRow == 3)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCompletedArrayController];
     }
     else if (self.outlineView.selectedRow == self.outlineView.numberOfRows - 1)
     {
