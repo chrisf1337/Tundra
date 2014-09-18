@@ -54,8 +54,7 @@
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     for (SeriesInfo *info in fetchedObjects)
     {
-        NSLog(@"Name: %@", info.name);
-        NSLog(@"Eps watched: %@", info.episodesWatched);
+        NSLog(@"%@ (%@/%@, status: %@)", info.name, info.episodesWatched, info.totalEpisodes, info.status);
     }
 }
 
@@ -124,9 +123,9 @@
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"Tundra.storedata"];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
     NSDictionary *options = nil;
-//    options = [NSDictionary dictionaryWithObjectsAndKeys:
-//                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-//                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;

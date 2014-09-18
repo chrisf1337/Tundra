@@ -24,11 +24,36 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-Wy-M9e">
+                    <rect key="frame" x="380" y="241" width="13" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <stepperCell key="cell" controlSize="mini" continuous="YES" alignment="left" maxValue="100" id="Wpq-Vf-sZ6"/>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.num" id="ndb-Lo-zdI"/>
+                    </connections>
+                </stepper>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fkM-6H-WPK">
+                    <rect key="frame" x="303" y="240" width="38" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="fsm-sO-gKI">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.num" id="Po0-3m-jgf"/>
+                    </connections>
+                </textField>
             </subviews>
             <constraints>
+                <constraint firstAttribute="centerY" secondItem="dkP-Wy-M9e" secondAttribute="centerY" constant="-25" id="4HY-xQ-CWO"/>
                 <constraint firstAttribute="centerX" secondItem="oGx-ut-A4j" secondAttribute="centerX" constant="-0.5" id="AfV-IR-fYR"/>
+                <constraint firstAttribute="centerX" secondItem="dkP-Wy-M9e" secondAttribute="centerX" constant="-64.5" id="WcX-6B-dFO"/>
+                <constraint firstAttribute="centerX" secondItem="fkM-6H-WPK" secondAttribute="centerX" id="drk-YG-rlC"/>
                 <constraint firstAttribute="centerY" secondItem="oGx-ut-A4j" secondAttribute="centerY" constant="0.5" id="g7e-MS-jIt"/>
+                <constraint firstAttribute="centerY" secondItem="fkM-6H-WPK" secondAttribute="centerY" constant="-24.5" id="gAQ-at-k5j"/>
             </constraints>
         </customView>
+        <userDefaultsController representsSharedInstance="YES" id="cRz-Y2-RpJ"/>
     </objects>
 </document>

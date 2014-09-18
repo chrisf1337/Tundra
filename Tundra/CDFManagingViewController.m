@@ -23,4 +23,13 @@
     return self;
 }
 
+- (NSURLConnection *)performRequestWithURLString:(NSString *)urlString
+{
+    NSString *requestString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
+    [request setValue:@"en-US" forHTTPHeaderField:@"Accept-Language"];
+    [request setValue:@"ISO-8859-1,utf-8" forHTTPHeaderField:@"Accept-Charset"];
+    return [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
 @end

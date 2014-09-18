@@ -29,6 +29,7 @@
     if (self)
     {
         self.title = @"Series Search View";
+        self.num = [NSNumber numberWithInt:0];
     }
     return self;
 }

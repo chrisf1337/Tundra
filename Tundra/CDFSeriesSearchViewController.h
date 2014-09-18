@@ -13,4 +13,6 @@
 
 @interface CDFSeriesSearchViewController : CDFManagingViewController
 
+@property (nonatomic) NSNumber *num;
+
 @end

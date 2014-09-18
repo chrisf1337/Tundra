@@ -12,10 +12,14 @@
 
 @interface CDFSeriesListViewController : CDFManagingViewController <NSTableViewDelegate>
 
-@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoAllArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCurrentlyWatchingArrayController;
 @property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSSearchField *searchField;
 
 - (IBAction)addSeries:(id)sender;
 - (void)sortList;
+- (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController;
+- (IBAction)dumpData:(id)sender;
 
 @end

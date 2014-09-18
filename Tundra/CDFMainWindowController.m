@@ -32,8 +32,13 @@
     {
         self.outlineSources = [[NSMutableArray alloc] init];
         NSMutableDictionary *item1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"List", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"All", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Currently Watching", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Search", @"itemName", [NSMutableArray array], @"children", nil];
+        [[item1 objectForKey:@"children"] addObject:item1_1];
+        [[item1 objectForKey:@"children"] addObject:item1_2];
         [self.outlineSources addObjectsFromArray:[NSArray arrayWithObjects:item1, item2, nil]];
+        
     }
     return self;
 }
@@ -55,7 +60,7 @@
     return self.managedObjectContext.undoManager;
 }
 
-- (void)showAddSheet
+- (void)showAddSheet;
 {
     [NSApp beginSheet:self.addSheet modalForWindow:self.window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
 }
@@ -66,10 +71,11 @@
     [NSApp endSheet:self.addSheet];
     [self.addSheet orderOut:sender];
     NSLog(@"%@", self.addedSeriesName.stringValue);
-    SeriesInfo *newSeries = [self.seriesListViewController.seriesInfoArrayController newObject];
+    SeriesInfo *newSeries = [self.seriesListViewController.seriesInfoAllArrayController newObject];
     newSeries.name = self.addedSeriesName.stringValue;
-    [self.seriesListViewController.seriesInfoArrayController addObject:newSeries];
-    NSUInteger row = [[self.seriesListViewController.seriesInfoArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
+    newSeries.status = [NSNumber numberWithInt:1];
+    [self.seriesListViewController.seriesInfoAllArrayController addObject:newSeries];
+    NSUInteger row = [[self.seriesListViewController.seriesInfoAllArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
     [self.seriesListViewController.tableView editColumn:1 row:row withEvent:nil select:YES];
 }
 
@@ -80,7 +86,26 @@
 
 - (void)outlineViewSelectionDidChange:(NSNotification *)notification
 {
-    self.box.contentView = ((CDFManagingViewController *)(self.viewControllers[self.outlineView.selectedRow])).view;
+    if (self.outlineView.selectedRow == 0)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+    }
+    else if (self.outlineView.selectedRow == 1)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoAllArrayController];
+//        [self.seriesListViewController.tableView reloadData];
+    }
+    else if (self.outlineView.selectedRow == 2)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCurrentlyWatchingArrayController];
+//        [self.seriesListViewController.tableView reloadData];
+    }
+    else if (self.outlineView.selectedRow == self.outlineView.numberOfRows - 1)
+    {
+        self.box.contentView = self.seriesSearchViewController.view;
+    }
 }
 
 @end
