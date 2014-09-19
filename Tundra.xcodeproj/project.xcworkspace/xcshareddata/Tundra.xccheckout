@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FA3E6679-CE57-40F6-A800-E51622C56DDD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Tundra</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D8AFE195BB4D104F50BE214421E67A2060C9F717</key>
+		<string>https://github.com/chrisf1337/Tundra.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tundra.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D8AFE195BB4D104F50BE214421E67A2060C9F717</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chrisf1337/Tundra.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D8AFE195BB4D104F50BE214421E67A2060C9F717</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D8AFE195BB4D104F50BE214421E67A2060C9F717</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Tundra</string>
+		</dict>
+	</array>
+</dict>
+</plist>

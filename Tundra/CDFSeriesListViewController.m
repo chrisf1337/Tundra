@@ -19,6 +19,8 @@
 
 @implementation CDFSeriesListViewController
 
+static void *CDFKVOContext;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -116,6 +118,7 @@
             seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
             seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
             seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
+            [self startObservingSeries:seriesInfo];
         }
         [self.managedObjectContext save:&error];
     }
@@ -160,6 +163,24 @@
                withKeyPath:@"filterPredicate"
                    options:[NSDictionary dictionaryWithObjectsAndKeys:@"predicate", NSDisplayNameBindingOption,
                             @"name contains[cd] $value", NSPredicateFormatBindingOption, nil]];
+}
+
+- (void)startObservingSeries:(SeriesInfo *)series
+{
+    [series addObserver:self forKeyPath:@"episodesWatched" options:NSKeyValueObservingOptionNew context:&CDFKVOContext];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == &CDFKVOContext)
+    {
+        id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        NSLog(@"%@ %@", ((SeriesInfo *)object).name, newValue);
+    }
+    else
+    {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 @end

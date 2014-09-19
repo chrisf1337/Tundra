@@ -93,6 +93,8 @@
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationFilesDirectory = [self applicationFilesDirectory];
+    NSLog(@"%@", applicationFilesDirectory);
+    
     NSError *error = nil;
     
     NSDictionary *properties = [applicationFilesDirectory resourceValuesForKeys:@[NSURLIsDirectoryKey] error:&error];

@@ -9,6 +9,6 @@
         <attribute name="totalEpisodes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SeriesInfo" positionX="3204" positionY="-3636" width="128" height="133"/>
+        <element name="SeriesInfo" positionX="3204" positionY="-3636" width="128" height="135"/>
     </elements>
 </model>

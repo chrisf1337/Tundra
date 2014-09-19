@@ -2,7 +2,7 @@
 //  SeriesInfo.h
 //  Tundra
 //
-//  Created by Christopher Fu on 9/17/14.
+//  Created by Christopher Fu on 9/19/14.
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
@@ -14,7 +14,9 @@
 
 @property (nonatomic, retain) NSNumber * episodesWatched;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * totalEpisodes;
 @property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSNumber * totalEpisodes;
+@property (nonatomic, retain) NSNumber * idNumber;
+@property (nonatomic, retain) NSNumber * lastUpdated;
 
 @end
