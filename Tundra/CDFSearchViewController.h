@@ -11,7 +11,7 @@
 
 //@class CDFMainWindowController;
 
-@interface CDFSeriesSearchViewController : CDFManagingViewController
+@interface CDFSearchViewController : CDFManagingViewController
 
 @property (nonatomic) NSNumber *num;
 

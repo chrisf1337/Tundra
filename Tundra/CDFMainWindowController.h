@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CDFSeriesInfoArrayController.h"
-#import "CDFSeriesListViewController.h"
-#import "CDFSeriesSearchViewController.h"
+#import "CDFListViewController.h"
+#import "CDFSearchViewController.h"
 #import "SeriesInfo.h"
 
 @interface CDFMainWindowController : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate>
@@ -18,8 +18,8 @@
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic) CDFSeriesListViewController *seriesListViewController;
-@property (nonatomic) CDFSeriesSearchViewController *seriesSearchViewController;
+@property (nonatomic) CDFListViewController *seriesListViewController;
+@property (nonatomic) CDFSearchViewController *seriesSearchViewController;
 
 @property (nonatomic) NSArray *viewControllers;
 

@@ -8,8 +8,8 @@
 
 #import "CDFAppDelegate.h"
 #import "CDFMainWindowController.h"
-#import "CDFSeriesListViewController.h"
-#import "CDFSeriesSearchViewController.h"
+#import "CDFListViewController.h"
+#import "CDFSearchViewController.h"
 
 @implementation CDFAppDelegate
 
@@ -26,12 +26,12 @@
     self.mainWindowController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     
-    self.mainWindowController.seriesListViewController = [[CDFSeriesListViewController alloc] init];
+    self.mainWindowController.seriesListViewController = [[CDFListViewController alloc] init];
     self.mainWindowController.seriesListViewController.managedObjectContext = self.managedObjectContext;
     self.mainWindowController.seriesListViewController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.seriesListViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     
-    self.mainWindowController.seriesSearchViewController = [[CDFSeriesSearchViewController alloc] init];
+    self.mainWindowController.seriesSearchViewController = [[CDFSearchViewController alloc] init];
     self.mainWindowController.seriesSearchViewController.managedObjectContext = self.managedObjectContext;
     self.mainWindowController.seriesSearchViewController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.seriesSearchViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;

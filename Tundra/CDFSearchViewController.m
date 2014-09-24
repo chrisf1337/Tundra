@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
-#import "CDFSeriesSearchViewController.h"
+#import "CDFSearchViewController.h"
 
-@interface CDFSeriesSearchViewController ()
+@interface CDFSearchViewController ()
 
 @end
 
-@implementation CDFSeriesSearchViewController
+@implementation CDFSearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,7 +25,7 @@
 
 - (instancetype)init
 {
-    self = [super initWithNibName:@"CDFSeriesSearchView" bundle:nil];
+    self = [super initWithNibName:@"CDFSearchView" bundle:nil];
     if (self)
     {
         self.title = @"Series Search View";

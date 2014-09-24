@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
-#import "CDFSeriesListViewController.h"
+#import "CDFListViewController.h"
 #import "CDFMainWindowController.h"
 #import "XMLDictionary.h"
 #import "SeriesInfo.h"
 
-@interface CDFSeriesListViewController ()
+@interface CDFListViewController ()
 
 @property (nonatomic) NSURLConnection *animeListRequest;
 
 @end
 
-@implementation CDFSeriesListViewController
+@implementation CDFListViewController
 
 static void *CDFKVOContext;
 
@@ -32,11 +32,12 @@ static void *CDFKVOContext;
 
 - (instancetype)init
 {
-    self = [super initWithNibName:@"CDFSeriesListView" bundle:nil];
+    self = [super initWithNibName:@"CDFListView" bundle:nil];
     if (self)
     {
         self.title = @"Series List View";
         self.responseData = [[NSMutableData alloc] init];
+        self.statusNames = @[@"Currently Watching", @"Completed", @"On Hold", @"Dropped", @"Plan to Watch"];
     }
     return self;
 }
@@ -45,8 +46,8 @@ static void *CDFKVOContext;
 {
     [super loadView];
     [self sortList];
-//    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
-    NSString *requestString = @"http://localhost:8000/malappinfo.xml";
+    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
+//    NSString *requestString = @"http://localhost:8000/malappinfo.xml";
     self.animeListRequest = [self performRequestWithURLString:requestString];
     
     NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
@@ -183,4 +184,8 @@ static void *CDFKVOContext;
     }
 }
 
+- (IBAction)popUpClicked:(id)sender
+{
+    NSLog(@"popUpClicked:");
+}
 @end

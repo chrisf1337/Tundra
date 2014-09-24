@@ -10,14 +10,17 @@
 #import "CDFManagingViewController.h"
 #import "CDFSeriesInfoArrayController.h"
 
-@interface CDFSeriesListViewController : CDFManagingViewController <NSTableViewDelegate>
+@interface CDFListViewController : CDFManagingViewController <NSTableViewDelegate>
 
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoAllArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCurrentlyWatchingArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCompletedArrayController;
+@property (strong) IBOutlet NSArrayController *popUpStatusNames;
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
+
+@property (strong) NSArray *statusNames;
 
 - (IBAction)addSeries:(id)sender;
 - (void)sortList;
