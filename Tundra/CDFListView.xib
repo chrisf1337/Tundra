@@ -11,6 +11,9 @@
                 <outlet property="seriesInfoAllArrayController" destination="fnw-el-TGs" id="yLk-tF-WEy"/>
                 <outlet property="seriesInfoCompletedArrayController" destination="WhL-Xf-2Tf" id="hrx-Qx-DCs"/>
                 <outlet property="seriesInfoCurrentlyWatchingArrayController" destination="Wk9-gX-HFh" id="239-Fu-I0C"/>
+                <outlet property="seriesInfoDroppedArrayController" destination="U3h-Cr-lO6" id="Ghr-PJ-r7W"/>
+                <outlet property="seriesInfoOnHoldArrayController" destination="P0I-Xy-Puy" id="TDg-11-9Rm"/>
+                <outlet property="seriesInfoPlanToWatchArrayController" destination="hWc-Vp-Yu9" id="pub-9M-95x"/>
                 <outlet property="tableView" destination="3vf-fF-Eg1" id="Nif-fO-foX"/>
                 <outlet property="view" destination="QaA-WU-57p" id="KsO-cT-trg"/>
             </connections>
@@ -18,11 +21,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="QaA-WU-57p">
-            <rect key="frame" x="0.0" y="0.0" width="792" height="516"/>
+            <rect key="frame" x="0.0" y="0.0" width="772" height="516"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-kr-ojt">
-                    <rect key="frame" x="20" y="56" width="752" height="410"/>
+                    <rect key="frame" x="20" y="56" width="732" height="410"/>
                     <clipView key="contentView" id="HEL-QG-Vm3">
                         <rect key="frame" x="1" y="17" width="643" height="392"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +36,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn identifier="name" width="323" minWidth="40" maxWidth="1000" id="97d-0x-JQ2">
+                                    <tableColumn identifier="name" width="359.9609375" minWidth="40" maxWidth="1000" id="97d-0x-JQ2">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -48,11 +51,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="Zh6-xR-hza">
-                                                <rect key="frame" x="1" y="1" width="323" height="17"/>
+                                                <rect key="frame" x="1" y="1" width="360" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="w7t-IN-Y3c">
-                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="WdU-9f-SsE">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -132,7 +135,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn identifier="totalEpisodes" width="143" minWidth="10" maxWidth="3.4028234663852886e+38" id="yj0-er-YnO">
+                                    <tableColumn identifier="totalEpisodes" width="100" minWidth="10" maxWidth="3.4028234663852886e+38" id="yj0-er-YnO">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Total Episodes">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -147,7 +150,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="MLp-4z-yFl">
-                                                <rect key="frame" x="507" y="1" width="143" height="17"/>
+                                                <rect key="frame" x="430" y="1" width="100" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" tag="102" translatesAutoresizingMaskIntoConstraints="NO" id="buv-NX-jWR">
@@ -170,7 +173,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="172" minWidth="10" maxWidth="3.4028234663852886e+38" id="82T-nb-crX">
+                                    <tableColumn width="158" minWidth="10" maxWidth="3.4028234663852886e+38" id="82T-nb-crX">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -184,23 +187,23 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="xHD-dh-SWE">
-                                                <rect key="frame" x="576" y="1" width="172" height="17"/>
+                                                <rect key="frame" x="570" y="1" width="158" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L31-E3-7zu">
-                                                        <rect key="frame" x="2" y="1" width="169" height="15"/>
+                                                        <rect key="frame" x="2" y="1" width="155" height="15"/>
                                                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="U5r-fM-zbj">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <menu key="menu" id="A8I-HA-Joh"/>
                                                         </popUpButtonCell>
                                                         <connections>
-                                                            <binding destination="-2" name="content" keyPath="self.popUpStatusNames.arrangedObjects" id="mqa-g7-dpK"/>
                                                             <binding destination="xHD-dh-SWE" name="selectedObject" keyPath="objectValue.status" previousBinding="mqa-g7-dpK" id="h3e-mc-epr">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">CDFStatusValueTransformer</string>
                                                                 </dictionary>
                                                             </binding>
+                                                            <binding destination="-2" name="content" keyPath="self.popUpStatusNames.arrangedObjects" id="mqa-g7-dpK"/>
                                                         </connections>
                                                     </popUpButton>
                                                 </subviews>
@@ -264,7 +267,7 @@ CA
                     </connections>
                 </button>
                 <searchField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RZ5-ly-DxO">
-                    <rect key="frame" x="20" y="474" width="752" height="22"/>
+                    <rect key="frame" x="20" y="474" width="732" height="22"/>
                     <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="fZt-5d-5gG">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -305,7 +308,7 @@ CA
                 <constraint firstAttribute="bottom" secondItem="uU6-kr-ojt" secondAttribute="bottom" constant="56" id="px7-yR-ib5"/>
                 <constraint firstAttribute="bottom" secondItem="JEm-X3-xZn" secondAttribute="bottom" constant="20" id="twA-Tv-WVS"/>
             </constraints>
-            <point key="canvasLocation" x="194" y="154"/>
+            <point key="canvasLocation" x="184" y="154"/>
         </customView>
         <arrayController mode="entity" entityName="SeriesInfo" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="fnw-el-TGs" userLabel="SeriesInfoAll" customClass="CDFSeriesInfoArrayController">
             <connections>
@@ -317,9 +320,24 @@ CA
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="Xsj-fA-huL"/>
             </connections>
         </arrayController>
+        <arrayController mode="entity" entityName="SeriesInfo" fetchPredicateFormat="status=6" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="hWc-Vp-Yu9" userLabel="SeriesInfoPlanToWatch" customClass="CDFSeriesInfoArrayController">
+            <connections>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="vno-Xq-9vx"/>
+            </connections>
+        </arrayController>
         <arrayController mode="entity" entityName="SeriesInfo" fetchPredicateFormat="status=2" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="WhL-Xf-2Tf" userLabel="SeriesInfoCompleted" customClass="CDFSeriesInfoArrayController">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="self.managedObjectContext" id="pLq-Xk-ZGP"/>
+            </connections>
+        </arrayController>
+        <arrayController mode="entity" entityName="SeriesInfo" fetchPredicateFormat="status=3" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="P0I-Xy-Puy" userLabel="SeriesInfoOnHold" customClass="CDFSeriesInfoArrayController">
+            <connections>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="k81-ip-Hfb"/>
+            </connections>
+        </arrayController>
+        <arrayController mode="entity" entityName="SeriesInfo" fetchPredicateFormat="status=4" automaticallyPreparesContent="YES" automaticallyRearrangesObjects="YES" id="U3h-Cr-lO6" userLabel="SeriesInfoDropped" customClass="CDFSeriesInfoArrayController">
+            <connections>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="5cx-jq-Eem"/>
             </connections>
         </arrayController>
         <arrayController objectClassName="NSString" automaticallyPreparesContent="YES" id="JyQ-y1-SJj" userLabel="StatusNames">

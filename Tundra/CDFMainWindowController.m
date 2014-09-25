@@ -34,10 +34,13 @@
         NSMutableDictionary *item1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"List", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"All", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Currently Watching", @"itemName", [NSMutableArray array], @"children", nil];
-        NSMutableDictionary *item1_3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Completed", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Plan to Watch", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Completed", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_5 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"On Hold", @"itemName", [NSMutableArray array], @"children", nil];
+        NSMutableDictionary *item1_6 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Dropped", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Search", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableArray *item1Children = [item1 objectForKey:@"children"];
-        [item1Children addObjectsFromArray:[NSArray arrayWithObjects:item1_1, item1_2, item1_3, nil]];
+        [item1Children addObjectsFromArray:[NSArray arrayWithObjects:item1_1, item1_2, item1_3, item1_4, item1_5, item1_6, nil]];
         [self.outlineSources addObjectsFromArray:[NSArray arrayWithObjects:item1, item2, nil]];
         
     }
@@ -105,7 +108,22 @@
     else if (self.outlineView.selectedRow == 3)
     {
         self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoPlanToWatchArrayController];
+    }
+    else if (self.outlineView.selectedRow == 4)
+    {
+        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCompletedArrayController];
+    }
+    else if (self.outlineView.selectedRow == 5)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoOnHoldArrayController];
+    }
+    else if (self.outlineView.selectedRow == 6)
+    {
+        self.box.contentView = self.seriesListViewController.view;
+        [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoDroppedArrayController];
     }
     else if (self.outlineView.selectedRow == self.outlineView.numberOfRows - 1)
     {

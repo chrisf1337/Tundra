@@ -67,7 +67,7 @@
     {
         return [NSNumber numberWithInt:kSeriesStatusDropped];
     }
-    else if ([value isEqualToString:@"Play to Watch"])
+    else if ([value isEqualToString:@"Plan to Watch"])
     {
         return [NSNumber numberWithInt:kSeriesStatusPlanned];
     }

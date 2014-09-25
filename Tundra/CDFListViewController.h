@@ -15,6 +15,9 @@
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoAllArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCurrentlyWatchingArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoCompletedArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoPlanToWatchArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoOnHoldArrayController;
+@property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoDroppedArrayController;
 @property (strong) IBOutlet NSArrayController *popUpStatusNames;
 
 @property (weak) IBOutlet NSTableView *tableView;

@@ -37,7 +37,7 @@ static void *CDFKVOContext;
     {
         self.title = @"Series List View";
         self.responseData = [[NSMutableData alloc] init];
-        self.statusNames = @[@"Currently Watching", @"Completed", @"On Hold", @"Dropped", @"Plan to Watch"];
+        self.statusNames = @[@"Currently Watching", @"Plan to Watch", @"Completed", @"On Hold", @"Dropped"];
     }
     return self;
 }
@@ -73,12 +73,24 @@ static void *CDFKVOContext;
 //    [self.tableView setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     NSLog(@"%@", self.seriesInfoAllArrayController.sortDescriptors);
     NSLog(@"%@", self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors);
+    
     self.seriesInfoAllArrayController.sortDescriptors = @[sortDescriptor];
     [self.seriesInfoAllArrayController rearrangeObjects];
+    
     self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors = @[sortDescriptor];
     [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
+    
+    self.seriesInfoPlanToWatchArrayController.sortDescriptors = @[sortDescriptor];
+    [self.seriesInfoPlanToWatchArrayController rearrangeObjects];
+    
     self.seriesInfoCompletedArrayController.sortDescriptors = @[sortDescriptor];
     [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
+    
+    self.seriesInfoOnHoldArrayController.sortDescriptors = @[sortDescriptor];
+    [self.seriesInfoOnHoldArrayController rearrangeObjects];
+    
+    self.seriesInfoDroppedArrayController.sortDescriptors = @[sortDescriptor];
+    [self.seriesInfoDroppedArrayController rearrangeObjects];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -169,6 +181,7 @@ static void *CDFKVOContext;
 - (void)startObservingSeries:(SeriesInfo *)series
 {
     [series addObserver:self forKeyPath:@"episodesWatched" options:NSKeyValueObservingOptionNew context:&CDFKVOContext];
+    [series addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:&CDFKVOContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
