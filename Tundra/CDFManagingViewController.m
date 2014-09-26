@@ -7,6 +7,7 @@
 //
 
 #import "CDFManagingViewController.h"
+#import "apikeys.h"
 
 @interface CDFManagingViewController ()
 
@@ -29,7 +30,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
     [request setValue:@"en-US" forHTTPHeaderField:@"Accept-Language"];
     [request setValue:@"ISO-8859-1,utf-8" forHTTPHeaderField:@"Accept-Charset"];
-    [request setValue:@"api-indiv-200194469CAEBA79C8E7D44F8189DDE3" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:MAL_USER_AGENT forHTTPHeaderField:@"User-Agent"];
     return [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 

@@ -93,6 +93,7 @@
 		89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFStatusValueTransformer.m; sourceTree = "<group>"; };
 		89D0D53E19D23F8D0087959B /* CDFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFUtils.h; sourceTree = "<group>"; };
 		89D0D53F19D2528B0087959B /* CDFListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFListView.xib; sourceTree = "<group>"; };
+		89D0D54119D505660087959B /* apikeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apikeys.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +181,7 @@
 				89BF17E119C4B5C300394973 /* CDFSearchViewController.h */,
 				89BF17E219C4B5C300394973 /* CDFSearchViewController.m */,
 				89D0D53F19D2528B0087959B /* CDFListView.xib */,
+				89D0D54119D505660087959B /* apikeys.h */,
 				89BF17E319C4B5C300394973 /* CDFSearchView.xib */,
 				8959305C19BCDF7200976214 /* MainMenu.xib */,
 				8959306219BCDF7200976214 /* Images.xcassets */,
