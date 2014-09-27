@@ -22,6 +22,7 @@
 #import "CDFMainWindowController.h"
 #import "XMLDictionary.h"
 #import "SeriesInfo.h"
+#import "apikeys.h"
 
 @interface CDFListViewController ()
 
@@ -82,6 +83,8 @@ static void *CDFKVOContext;
             {
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
                 NSArray *results = [self.allSeriesArray filteredArrayUsingPredicate:predicate];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                dateFormatter.dateFormat = @"yyyy-MM-dd";
                 if (results.count == 0)
                 {
                     NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
@@ -93,6 +96,8 @@ static void *CDFKVOContext;
                     seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
                     seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
                     seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
+                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
+                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
                 }
                 else if (results.count == 1)
                 {
@@ -108,6 +113,8 @@ static void *CDFKVOContext;
                         seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
                         seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
                         seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
+                        seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
+                        seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
                     }
                 }
             }
@@ -142,6 +149,8 @@ static void *CDFKVOContext;
     }
     NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
     NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
     void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
     {
         if (!error)
@@ -149,7 +158,6 @@ static void *CDFKVOContext;
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
             if (httpResponse.statusCode == 200)
             {
-                NSLog(@"%@", [NSString stringWithUTF8String:[data bytes]]);
                 NSError *error;
                 NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
                 nf.numberStyle = NSNumberFormatterDecimalStyle;
@@ -165,6 +173,8 @@ static void *CDFKVOContext;
                     seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
                     seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
                     seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
+                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
+                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
                     [self startObservingSeries:seriesInfo];
                 }
                 [self.managedObjectContext save:&error];
@@ -214,8 +224,8 @@ static void *CDFKVOContext;
     NSLog(@"--START--");
     for (SeriesInfo *info in fetchedObjects)
     {
-        NSLog(@"%@ (%@/%@, status: %@, id: %@, last updated: %@)", info.name, info.episodesWatched, info.totalEpisodes,
-              info.status, info.idNumber, info.lastUpdated);
+        NSLog(@"%@ (%@/%@, status: %@, id: %@, last updated: %@), start: %@, end: %@", info.name, info.episodesWatched, info.totalEpisodes,
+              info.status, info.idNumber, info.lastUpdated, info.startDate, info.endDate);
     }
     NSLog(@"--END--");
 }
@@ -262,7 +272,29 @@ static void *CDFKVOContext;
     if (context == &CDFKVOContext)
     {
         id newValue = [change objectForKey:NSKeyValueChangeNewKey];
+        SeriesInfo *series = (SeriesInfo *)object;
         NSLog(@"%@ %@", ((SeriesInfo *)object).name, newValue);
+        NSMutableDictionary *seriesDict = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
+        [entry setValue:series.episodesWatched forKey:@"episode"];
+        [entry setValue:series.status forKey:@"status"];
+        [seriesDict setValue:entry forKey:@"entry"];
+        NSString *requestString = [NSString stringWithFormat:@"http://%@:%@@myanimelist.net/api/animelist/update/19769.xml", MAL_USERNAME, MAL_PASSWORD];
+        NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        request.HTTPBody = [[NSString stringWithFormat:@"data=%@", [seriesDict XMLString]] dataUsingEncoding:NSUTF8StringEncoding];
+        request.HTTPMethod = @"POST";
+        void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+        {
+            if (!error)
+            {
+                NSLog(@"%@", [NSString stringWithUTF8String:data.bytes]);
+            }
+        };
+        NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
+                                                         completionHandler:completionHandler];
+        [dataTask resume];
+        NSLog(@"%@", [seriesDict XMLString]);
     }
     else
     {

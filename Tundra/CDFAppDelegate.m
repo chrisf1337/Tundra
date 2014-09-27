@@ -44,18 +44,6 @@
     
     [self.mainWindowController showWindow:self];
     self.window = self.mainWindowController.window;
-    NSLog(@"%@", self.managedObjectContext.undoManager);
-    
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo"
-                                              inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    for (SeriesInfo *info in fetchedObjects)
-    {
-        NSLog(@"%@ (%@/%@, status: %@)", info.name, info.episodesWatched, info.totalEpisodes, info.status);
-    }
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.Tundra" in the user's Application Support directory.

@@ -62,7 +62,6 @@
     self.box.contentView = self.seriesListViewController.view;
 //    self.box.contentView = self.seriesSearchViewController.view;
     
-    NSLog(@"%@", [self.outlineView itemAtRow:0]);
     [self.outlineView selectItem:[self.outlineView itemAtRow:0]];
     [self.outlineView expandItem:[self.outlineView itemAtRow:0]];
 }
@@ -82,7 +81,6 @@
 {
     [NSApp endSheet:self.addSheet];
     [self.addSheet orderOut:sender];
-    NSLog(@"%@", self.addedSeriesName.stringValue);
     SeriesInfo *newSeries = [self.seriesListViewController.seriesInfoAllArrayController newObject];
     newSeries.name = self.addedSeriesName.stringValue;
     newSeries.status = [NSNumber numberWithInt:1];
