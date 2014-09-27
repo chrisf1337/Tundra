@@ -2,7 +2,7 @@
 //  SeriesInfo.m
 //  Tundra
 //
-//  Created by Christopher Fu on 9/19/14.
+//  Created by Christopher Fu on 9/25/14.
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
@@ -12,10 +12,11 @@
 @implementation SeriesInfo
 
 @dynamic episodesWatched;
+@dynamic idNumber;
+@dynamic lastUpdated;
 @dynamic name;
 @dynamic status;
 @dynamic totalEpisodes;
-@dynamic idNumber;
-@dynamic lastUpdated;
+@dynamic imageUrl;
 
 @end

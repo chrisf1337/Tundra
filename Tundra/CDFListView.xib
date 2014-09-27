@@ -101,7 +101,8 @@
                                                         <rect key="frame" x="0.0" y="1" width="13" height="15"/>
                                                         <stepperCell key="cell" controlSize="mini" continuous="YES" alignment="left" maxValue="100" id="VQa-G2-adZ"/>
                                                         <connections>
-                                                            <binding destination="lzA-Kf-Ili" name="value" keyPath="objectValue.episodesWatched" id="2lF-an-BR1"/>
+                                                            <binding destination="lzA-Kf-Ili" name="maxValue" keyPath="objectValue.totalEpisodes" id="dez-sY-FaO"/>
+                                                            <binding destination="lzA-Kf-Ili" name="value" keyPath="objectValue.episodesWatched" previousBinding="dez-sY-FaO" id="jGp-5J-POb"/>
                                                         </connections>
                                                     </stepper>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="101" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-SW-Quc">
@@ -302,7 +303,29 @@ CA
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="fnw-el-TGs" name="displayPatternValue1" keyPath="selection.@count" id="zHz-Oq-Ijh">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">%{value1}@ of %{value2}@ series</string>
+                            </dictionary>
+                        </binding>
+                        <binding destination="fnw-el-TGs" name="displayPatternValue2" keyPath="arrangedObjects.@count" previousBinding="zHz-Oq-Ijh" id="qfL-55-XTO">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">%{value1}@ of %{value2}@ series</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Om3-WY-Oag">
+                    <rect key="frame" x="273" y="13" width="63" height="32"/>
+                    <buttonCell key="cell" type="push" title="Pull" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DCV-Es-bdC">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pullData:" target="-2" id="qoI-aS-Bzl"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="RZ5-ly-DxO" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="03F-M6-6lM"/>
@@ -310,6 +333,8 @@ CA
                 <constraint firstAttribute="trailing" secondItem="uU6-kr-ojt" secondAttribute="trailing" constant="20" id="3se-TA-Ohy"/>
                 <constraint firstItem="RZ5-ly-DxO" firstAttribute="top" secondItem="QaA-WU-57p" secondAttribute="top" constant="20" id="6Jy-zD-EWa"/>
                 <constraint firstItem="uU6-kr-ojt" firstAttribute="top" secondItem="QaA-WU-57p" secondAttribute="top" constant="50" id="81N-sf-08D"/>
+                <constraint firstAttribute="bottom" secondItem="Om3-WY-Oag" secondAttribute="bottom" constant="20" id="P3M-qi-qLg"/>
+                <constraint firstItem="Om3-WY-Oag" firstAttribute="leading" secondItem="rsY-Jl-S7x" secondAttribute="trailing" constant="12" id="PS7-Zt-1lL"/>
                 <constraint firstAttribute="bottom" secondItem="rsY-Jl-S7x" secondAttribute="bottom" constant="20" id="TEv-LY-ILU"/>
                 <constraint firstItem="JEm-X3-xZn" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="UML-VL-7S2"/>
                 <constraint firstItem="rsY-Jl-S7x" firstAttribute="leading" secondItem="4Si-fm-ccG" secondAttribute="trailing" constant="12" id="ai3-fP-o94"/>

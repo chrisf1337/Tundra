@@ -29,9 +29,9 @@
 		89BF17E819C4DE2300394973 /* CDFManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17E719C4DE2300394973 /* CDFManagingViewController.m */; };
 		89BF17F019C7E4A000394973 /* CDFTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17EF19C7E4A000394973 /* CDFTableView.m */; };
 		89BF17F619C806BC00394973 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17F519C806BC00394973 /* XMLDictionary.m */; };
-		89D0D53719CCB9100087959B /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D53619CCB9100087959B /* SeriesInfo.m */; };
 		89D0D53D19D0EFDE0087959B /* CDFStatusValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */; };
 		89D0D54019D2528B0087959B /* CDFListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D53F19D2528B0087959B /* CDFListView.xib */; };
+		89D0D54519D509520087959B /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D54419D509520087959B /* SeriesInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,13 +87,14 @@
 		89BF17F719CA023D00394973 /* Tundra 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 3.xcdatamodel"; sourceTree = "<group>"; };
 		89BF17FB19CA6D3300394973 /* Tundra 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 4.xcdatamodel"; sourceTree = "<group>"; };
 		89D0D53419CCB8B20087959B /* Tundra 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 5.xcdatamodel"; sourceTree = "<group>"; };
-		89D0D53519CCB9100087959B /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
-		89D0D53619CCB9100087959B /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
 		89D0D53B19D0EFDE0087959B /* CDFStatusValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFStatusValueTransformer.h; sourceTree = "<group>"; };
 		89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFStatusValueTransformer.m; sourceTree = "<group>"; };
 		89D0D53E19D23F8D0087959B /* CDFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFUtils.h; sourceTree = "<group>"; };
 		89D0D53F19D2528B0087959B /* CDFListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFListView.xib; sourceTree = "<group>"; };
 		89D0D54119D505660087959B /* apikeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apikeys.h; sourceTree = "<group>"; };
+		89D0D54219D509180087959B /* Tundra 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 6.xcdatamodel"; sourceTree = "<group>"; };
+		89D0D54319D509520087959B /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
+		89D0D54419D509520087959B /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +160,8 @@
 		8959304D19BCDF7100976214 /* Tundra */ = {
 			isa = PBXGroup;
 			children = (
+				89D0D54319D509520087959B /* SeriesInfo.h */,
+				89D0D54419D509520087959B /* SeriesInfo.m */,
 				89BF17F419C806BC00394973 /* XMLDictionary.h */,
 				89BF17F519C806BC00394973 /* XMLDictionary.m */,
 				89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */,
@@ -186,9 +189,7 @@
 				8959305C19BCDF7200976214 /* MainMenu.xib */,
 				8959306219BCDF7200976214 /* Images.xcassets */,
 				8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */,
-				89D0D53519CCB9100087959B /* SeriesInfo.h */,
 				89D0D53E19D23F8D0087959B /* CDFUtils.h */,
-				89D0D53619CCB9100087959B /* SeriesInfo.m */,
 				8959304E19BCDF7100976214 /* Supporting Files */,
 			);
 			path = Tundra;
@@ -333,11 +334,11 @@
 				89BF17E819C4DE2300394973 /* CDFManagingViewController.m in Sources */,
 				89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */,
 				89BF17E419C4B5C300394973 /* CDFSearchViewController.m in Sources */,
-				89D0D53719CCB9100087959B /* SeriesInfo.m in Sources */,
 				8959305B19BCDF7100976214 /* CDFAppDelegate.m in Sources */,
 				896CDAAA19C2BFCF00A6734D /* CDFListViewController.m in Sources */,
 				8959305419BCDF7100976214 /* main.m in Sources */,
 				89BF17F019C7E4A000394973 /* CDFTableView.m in Sources */,
+				89D0D54519D509520087959B /* SeriesInfo.m in Sources */,
 				8959308819BE0CC200976214 /* CDFMainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,12 +570,13 @@
 			isa = XCVersionGroup;
 			children = (
 				89D0D53419CCB8B20087959B /* Tundra 5.xcdatamodel */,
+				89D0D54219D509180087959B /* Tundra 6.xcdatamodel */,
 				89BF17F719CA023D00394973 /* Tundra 3.xcdatamodel */,
 				89BF17FB19CA6D3300394973 /* Tundra 4.xcdatamodel */,
 				89BF17E919C55F7200394973 /* Tundra 2.xcdatamodel */,
 				8959306019BCDF7200976214 /* Tundra.xcdatamodel */,
 			);
-			currentVersion = 89D0D53419CCB8B20087959B /* Tundra 5.xcdatamodel */;
+			currentVersion = 89D0D54219D509180087959B /* Tundra 6.xcdatamodel */;
 			path = Tundra.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

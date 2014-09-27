@@ -26,6 +26,8 @@
 @property (strong) NSArray *statusNames;
 
 - (IBAction)addSeries:(id)sender;
+- (IBAction)pullData:(id)sender;
+
 - (void)sortList;
 - (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController;
 - (IBAction)dumpData:(id)sender;
