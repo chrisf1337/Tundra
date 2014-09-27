@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
+/*
+ * A subclass of NSTableView that enables NSSteppers as first responders. Plain
+ * NSTableViews do not support this functionality.
+ */
+
 #import "CDFTableView.h"
 
 @implementation CDFTableView

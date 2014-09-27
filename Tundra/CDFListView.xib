@@ -101,8 +101,8 @@
                                                         <rect key="frame" x="0.0" y="1" width="13" height="15"/>
                                                         <stepperCell key="cell" controlSize="mini" continuous="YES" alignment="left" maxValue="100" id="VQa-G2-adZ"/>
                                                         <connections>
-                                                            <binding destination="lzA-Kf-Ili" name="maxValue" keyPath="objectValue.totalEpisodes" id="dez-sY-FaO"/>
                                                             <binding destination="lzA-Kf-Ili" name="value" keyPath="objectValue.episodesWatched" previousBinding="dez-sY-FaO" id="jGp-5J-POb"/>
+                                                            <binding destination="lzA-Kf-Ili" name="maxValue" keyPath="objectValue.totalEpisodes" id="dez-sY-FaO"/>
                                                         </connections>
                                                     </stepper>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" tag="101" translatesAutoresizingMaskIntoConstraints="NO" id="Ocu-SW-Quc">
@@ -304,12 +304,12 @@ CA
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="fnw-el-TGs" name="displayPatternValue1" keyPath="selection.@count" id="zHz-Oq-Ijh">
+                        <binding destination="fnw-el-TGs" name="displayPatternValue2" keyPath="arrangedObjects.@count" previousBinding="zHz-Oq-Ijh" id="qfL-55-XTO">
                             <dictionary key="options">
                                 <string key="NSDisplayPattern">%{value1}@ of %{value2}@ series</string>
                             </dictionary>
                         </binding>
-                        <binding destination="fnw-el-TGs" name="displayPatternValue2" keyPath="arrangedObjects.@count" previousBinding="zHz-Oq-Ijh" id="qfL-55-XTO">
+                        <binding destination="fnw-el-TGs" name="displayPatternValue1" keyPath="selection.@count" id="zHz-Oq-Ijh">
                             <dictionary key="options">
                                 <string key="NSDisplayPattern">%{value1}@ of %{value2}@ series</string>
                             </dictionary>

@@ -6,6 +6,18 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
+/*
+ * CDFListViewController controls the logic for the series list. It contains
+ * array controllers for all the status categories: currently watching,
+ * compeleted, planned, on hold, and dropped. These array controllers are bound
+ * to view-based NSTableView (actually CDFTableView) columns. Switching in 
+ * between these categories on the NSOutlineView switches which array controller 
+ * is currently bound to the table view. The list view controller is in charge
+ * of handling user edits to the series list and saving those changes to the
+ * Core Data store and can be perhaps considered the most important function of
+ * Tundra.
+ */
+
 #import <Cocoa/Cocoa.h>
 #import "CDFManagingViewController.h"
 #import "CDFSeriesInfoArrayController.h"

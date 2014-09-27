@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
+/*
+ * The main window controller of the application. At this moment, Tundra only
+ * has one active window, although that may change in the future if we decide to
+ * add an inspector window. CDFMainWindowController handles view switching logic
+ * and the initializing of the list selection view.
+ */
+
 #import "CDFMainWindowController.h"
 #import "NSOutlineView+Additions.h"
 #import "CDFManagingViewController.h"

@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 Christopher Fu. All rights reserved.
 //
 
+/*
+ * A collection of methods to make selecting and expanding NSOutlineView
+ * elements easier.
+ */
+
 #import "NSOutlineView+Additions.h"
 
 @implementation NSOutlineView (Additions)
