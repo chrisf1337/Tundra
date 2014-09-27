@@ -31,6 +31,7 @@
 @property (nonatomic) NSArray *viewControllers;
 
 @property (nonatomic) IBOutlet NSWindow *addSheet;
+@property (strong) IBOutlet NSWindow *loginSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
 @property (strong) IBOutlet NSView *searchView;
 @property (weak) IBOutlet NSSplitView *splitView;

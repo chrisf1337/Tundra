@@ -30,22 +30,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        config.HTTPAdditionalHeaders = @{@"User-Agent":MAL_USER_AGENT};
+        _session = [NSURLSession sessionWithConfiguration:config];
     }
     return self;
-}
-
-/*
- * Sets up a NSURLConnection to the specified urlString. The user agent is
- * defined in apikeys.h.
- */
-- (NSURLConnection *)performRequestWithURLString:(NSString *)urlString
-{
-    NSString *requestString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:requestString]];
-    [request setValue:@"en-US" forHTTPHeaderField:@"Accept-Language"];
-    [request setValue:@"ISO-8859-1,utf-8" forHTTPHeaderField:@"Accept-Charset"];
-    [request setValue:MAL_USER_AGENT forHTTPHeaderField:@"User-Agent"];
-    return [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 @end

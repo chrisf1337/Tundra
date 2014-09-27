@@ -20,15 +20,14 @@
 
 @class CDFMainWindowController;
 
-@interface CDFManagingViewController : NSViewController <NSURLConnectionDataDelegate>
+@interface CDFManagingViewController : NSViewController
 
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, weak) CDFMainWindowController *mainWindowController;
-@property (nonatomic) NSMutableData *responseData;
 
-- (NSURLConnection *)performRequestWithURLString:(NSString *)urlString;
+@property (strong) NSURLSession *session;
 
 @end
