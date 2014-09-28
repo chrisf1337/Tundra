@@ -50,6 +50,8 @@ static void *CDFKVOContext;
     {
         self.title = @"Series List View";
         self.statusNames = @[@"Currently Watching", @"Plan to Watch", @"Completed", @"On Hold", @"Dropped"];
+        self.currentSeriesInfoArrayController = self.seriesInfoAllArrayController;
+        self.currentlySelectedStatus = 1;
     }
     return self;
 }
@@ -232,10 +234,13 @@ static void *CDFKVOContext;
 
 - (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController
 {
+    self.currentSeriesInfoArrayController = arrayController;
     [self.tableView unbind:NSContentBinding];
     [self.tableView unbind:NSSelectionIndexesBinding];
     [self.tableView unbind:NSSortDescriptorsBinding];
     [self.searchField unbind:NSPredicateBinding];
+    [self.statusField unbind:[NSString stringWithFormat:@"%@1", NSDisplayPatternValueBinding]]; // @"displayPatternValue1"
+    [self.statusField unbind:[NSString stringWithFormat:@"%@2", NSDisplayPatternValueBinding]]; // @"displayPatternValue2"
     [self.tableView bind:NSContentBinding
                 toObject:arrayController
              withKeyPath:@"arrangedObjects"
@@ -253,6 +258,14 @@ static void *CDFKVOContext;
                withKeyPath:@"filterPredicate"
                    options:[NSDictionary dictionaryWithObjectsAndKeys:@"predicate", NSDisplayNameBindingOption,
                             @"name contains[cd] $value", NSPredicateFormatBindingOption, nil]];
+    [self.statusField bind:[NSString stringWithFormat:@"%@1", NSDisplayPatternValueBinding]
+                  toObject:arrayController
+               withKeyPath:@"selection.@count"
+                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption, nil]];
+    [self.statusField bind:[NSString stringWithFormat:@"%@2", NSDisplayPatternValueBinding]
+                  toObject:arrayController
+               withKeyPath:@"arrangedObjects.@count"
+                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption, nil]];
 }
 
 - (void)startObservingSeries:(SeriesInfo *)series

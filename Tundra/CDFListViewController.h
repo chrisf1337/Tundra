@@ -21,6 +21,7 @@
 #import <Cocoa/Cocoa.h>
 #import "CDFManagingViewController.h"
 #import "CDFSeriesInfoArrayController.h"
+#import "SeriesInfo.h"
 
 @interface CDFListViewController : CDFManagingViewController <NSTableViewDelegate>
 
@@ -30,6 +31,10 @@
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoPlanToWatchArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoOnHoldArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoDroppedArrayController;
+
+@property (nonatomic) CDFSeriesInfoArrayController *currentSeriesInfoArrayController;
+@property (nonatomic) int currentlySelectedStatus;
+
 @property (strong) IBOutlet NSArrayController *popUpStatusNames;
 
 @property (weak) IBOutlet NSTableView *tableView;
@@ -43,6 +48,9 @@
 
 - (void)sortList;
 - (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController;
+- (void)startObservingSeries:(SeriesInfo *)series;
+- (void)stopObservingSeries:(SeriesInfo *)series;
+
 - (IBAction)dumpData:(id)sender;
 
 @end

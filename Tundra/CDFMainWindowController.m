@@ -83,9 +83,11 @@
     [self.addSheet orderOut:sender];
     SeriesInfo *newSeries = [self.seriesListViewController.seriesInfoAllArrayController newObject];
     newSeries.name = self.addedSeriesName.stringValue;
-    newSeries.status = [NSNumber numberWithInt:1];
-    [self.seriesListViewController.seriesInfoAllArrayController addObject:newSeries];
-    NSUInteger row = [[self.seriesListViewController.seriesInfoAllArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
+    newSeries.status = [NSNumber numberWithInt:self.seriesListViewController.currentlySelectedStatus];
+    NSLog(@"%d", newSeries.status.intValue);
+    [self.seriesListViewController.currentSeriesInfoArrayController addObject:newSeries];
+    [self.seriesListViewController startObservingSeries:newSeries];
+    NSUInteger row = [[self.seriesListViewController.currentSeriesInfoArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
     [self.seriesListViewController.tableView editColumn:1 row:row withEvent:nil select:YES];
 }
 
@@ -104,31 +106,37 @@
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoAllArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 1;
     }
     else if (self.outlineView.selectedRow == 2)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCurrentlyWatchingArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 1;
     }
     else if (self.outlineView.selectedRow == 3)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoPlanToWatchArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 6;
     }
     else if (self.outlineView.selectedRow == 4)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCompletedArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 2;
     }
     else if (self.outlineView.selectedRow == 5)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoOnHoldArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 3;
     }
     else if (self.outlineView.selectedRow == 6)
     {
         self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoDroppedArrayController];
+        self.seriesListViewController.currentlySelectedStatus = 4;
     }
     else if (self.outlineView.selectedRow == self.outlineView.numberOfRows - 1)
     {
