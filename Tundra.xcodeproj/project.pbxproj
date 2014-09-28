@@ -1,617 +1,1820 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		8959304819BCDF7100976214 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959304719BCDF7100976214 /* Cocoa.framework */; };
-		8959305219BCDF7100976214 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8959305019BCDF7100976214 /* InfoPlist.strings */; };
-		8959305419BCDF7100976214 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959305319BCDF7100976214 /* main.m */; };
-		8959305819BCDF7100976214 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8959305619BCDF7100976214 /* Credits.rtf */; };
-		8959305B19BCDF7100976214 /* CDFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959305A19BCDF7100976214 /* CDFAppDelegate.m */; };
-		8959305E19BCDF7200976214 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8959305C19BCDF7200976214 /* MainMenu.xib */; };
-		8959306119BCDF7200976214 /* Tundra.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */; };
-		8959306319BCDF7200976214 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8959306219BCDF7200976214 /* Images.xcassets */; };
-		8959306A19BCDF7200976214 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959306919BCDF7200976214 /* XCTest.framework */; };
-		8959306B19BCDF7200976214 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959304719BCDF7100976214 /* Cocoa.framework */; };
-		8959307319BCDF7200976214 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8959307119BCDF7200976214 /* InfoPlist.strings */; };
-		8959307519BCDF7200976214 /* TundraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959307419BCDF7200976214 /* TundraTests.m */; };
-		8959308819BE0CC200976214 /* CDFMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308619BE0CC200976214 /* CDFMainWindowController.m */; };
-		8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8959308719BE0CC200976214 /* CDFMainWindowController.xib */; };
-		8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */; };
-		896CDAAA19C2BFCF00A6734D /* CDFListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CDAA919C2BFCF00A6734D /* CDFListViewController.m */; };
-		89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */; };
-		89BF17E419C4B5C300394973 /* CDFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17E219C4B5C300394973 /* CDFSearchViewController.m */; };
-		89BF17E519C4B5C300394973 /* CDFSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BF17E319C4B5C300394973 /* CDFSearchView.xib */; };
-		89BF17E819C4DE2300394973 /* CDFManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17E719C4DE2300394973 /* CDFManagingViewController.m */; };
-		89BF17F019C7E4A000394973 /* CDFTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17EF19C7E4A000394973 /* CDFTableView.m */; };
-		89BF17F619C806BC00394973 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17F519C806BC00394973 /* XMLDictionary.m */; };
-		89D0D53D19D0EFDE0087959B /* CDFStatusValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */; };
-		89D0D54019D2528B0087959B /* CDFListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D53F19D2528B0087959B /* CDFListView.xib */; };
-		89D0D57A19D7601C0087959B /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D57919D7601C0087959B /* SeriesInfo.m */; };
-		89D0D58519D784360087959B /* Tundra-icon_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D57F19D784360087959B /* Tundra-icon_16.png */; };
-		89D0D58619D784360087959B /* Tundra-icon_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58019D784360087959B /* Tundra-icon_32.png */; };
-		89D0D58719D784360087959B /* Tundra-icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58119D784360087959B /* Tundra-icon_128.png */; };
-		89D0D58819D784360087959B /* Tundra-icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58219D784360087959B /* Tundra-icon_1024.png */; };
-		89D0D58919D784360087959B /* Tundra-icon_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58319D784360087959B /* Tundra-icon_256.png */; };
-		89D0D58A19D784360087959B /* Tundra-icon_512.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58419D784360087959B /* Tundra-icon_512.png */; };
-		89D0D58C19D784950087959B /* Tundra-icon_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58B19D784950087959B /* Tundra-icon_64.png */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		8959306C19BCDF7200976214 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8959303C19BCDF7100976214 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8959304319BCDF7100976214;
-			remoteInfo = Tundra;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		8959304419BCDF7100976214 /* Tundra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tundra.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8959304719BCDF7100976214 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8959304A19BCDF7100976214 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8959304B19BCDF7100976214 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8959304C19BCDF7100976214 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8959304F19BCDF7100976214 /* Tundra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tundra-Info.plist"; sourceTree = "<group>"; };
-		8959305119BCDF7100976214 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8959305319BCDF7100976214 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8959305519BCDF7100976214 /* Tundra-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tundra-Prefix.pch"; sourceTree = "<group>"; };
-		8959305719BCDF7100976214 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8959305919BCDF7100976214 /* CDFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFAppDelegate.h; sourceTree = "<group>"; };
-		8959305A19BCDF7100976214 /* CDFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDFAppDelegate.m; sourceTree = "<group>"; };
-		8959305D19BCDF7200976214 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		8959306019BCDF7200976214 /* Tundra.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tundra.xcdatamodel; sourceTree = "<group>"; };
-		8959306219BCDF7200976214 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8959306819BCDF7200976214 /* TundraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TundraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8959306919BCDF7200976214 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		8959307019BCDF7200976214 /* TundraTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TundraTests-Info.plist"; sourceTree = "<group>"; };
-		8959307219BCDF7200976214 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8959307419BCDF7200976214 /* TundraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TundraTests.m; sourceTree = "<group>"; };
-		8959308519BE0CC200976214 /* CDFMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFMainWindowController.h; sourceTree = "<group>"; };
-		8959308619BE0CC200976214 /* CDFMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFMainWindowController.m; sourceTree = "<group>"; };
-		8959308719BE0CC200976214 /* CDFMainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFMainWindowController.xib; sourceTree = "<group>"; };
-		8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSeriesInfoArrayController.h; sourceTree = "<group>"; };
-		8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSeriesInfoArrayController.m; sourceTree = "<group>"; };
-		896CDAA819C2BFCF00A6734D /* CDFListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFListViewController.h; sourceTree = "<group>"; };
-		896CDAA919C2BFCF00A6734D /* CDFListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFListViewController.m; sourceTree = "<group>"; };
-		89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOutlineView+Additions.h"; sourceTree = "<group>"; };
-		89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOutlineView+Additions.m"; sourceTree = "<group>"; };
-		89BF17E119C4B5C300394973 /* CDFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSearchViewController.h; sourceTree = "<group>"; };
-		89BF17E219C4B5C300394973 /* CDFSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFSearchViewController.m; sourceTree = "<group>"; };
-		89BF17E319C4B5C300394973 /* CDFSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFSearchView.xib; sourceTree = "<group>"; };
-		89BF17E619C4DE2300394973 /* CDFManagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFManagingViewController.h; sourceTree = "<group>"; };
-		89BF17E719C4DE2300394973 /* CDFManagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFManagingViewController.m; sourceTree = "<group>"; };
-		89BF17E919C55F7200394973 /* Tundra 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 2.xcdatamodel"; sourceTree = "<group>"; };
-		89BF17EE19C7E4A000394973 /* CDFTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFTableView.h; sourceTree = "<group>"; };
-		89BF17EF19C7E4A000394973 /* CDFTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFTableView.m; sourceTree = "<group>"; };
-		89BF17F419C806BC00394973 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
-		89BF17F519C806BC00394973 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
-		89BF17F719CA023D00394973 /* Tundra 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 3.xcdatamodel"; sourceTree = "<group>"; };
-		89BF17FB19CA6D3300394973 /* Tundra 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 4.xcdatamodel"; sourceTree = "<group>"; };
-		89D0D53419CCB8B20087959B /* Tundra 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 5.xcdatamodel"; sourceTree = "<group>"; };
-		89D0D53B19D0EFDE0087959B /* CDFStatusValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFStatusValueTransformer.h; sourceTree = "<group>"; };
-		89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFStatusValueTransformer.m; sourceTree = "<group>"; };
-		89D0D53E19D23F8D0087959B /* CDFUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFUtils.h; sourceTree = "<group>"; };
-		89D0D53F19D2528B0087959B /* CDFListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFListView.xib; sourceTree = "<group>"; };
-		89D0D54119D505660087959B /* apikeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apikeys.h; sourceTree = "<group>"; };
-		89D0D54219D509180087959B /* Tundra 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 6.xcdatamodel"; sourceTree = "<group>"; };
-		89D0D57719D75FB80087959B /* Tundra 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 7.xcdatamodel"; sourceTree = "<group>"; };
-		89D0D57819D7601C0087959B /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
-		89D0D57919D7601C0087959B /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
-		89D0D57F19D784360087959B /* Tundra-icon_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_16.png"; sourceTree = "<group>"; };
-		89D0D58019D784360087959B /* Tundra-icon_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_32.png"; sourceTree = "<group>"; };
-		89D0D58119D784360087959B /* Tundra-icon_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_128.png"; sourceTree = "<group>"; };
-		89D0D58219D784360087959B /* Tundra-icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_1024.png"; sourceTree = "<group>"; };
-		89D0D58319D784360087959B /* Tundra-icon_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_256.png"; sourceTree = "<group>"; };
-		89D0D58419D784360087959B /* Tundra-icon_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_512.png"; sourceTree = "<group>"; };
-		89D0D58B19D784950087959B /* Tundra-icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_64.png"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		8959304119BCDF7100976214 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8959304819BCDF7100976214 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8959306519BCDF7200976214 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8959306B19BCDF7200976214 /* Cocoa.framework in Frameworks */,
-				8959306A19BCDF7200976214 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		8959303B19BCDF7100976214 = {
-			isa = PBXGroup;
-			children = (
-				8959304D19BCDF7100976214 /* Tundra */,
-				8959306E19BCDF7200976214 /* TundraTests */,
-				8959304619BCDF7100976214 /* Frameworks */,
-				8959304519BCDF7100976214 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		8959304519BCDF7100976214 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8959304419BCDF7100976214 /* Tundra.app */,
-				8959306819BCDF7200976214 /* TundraTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8959304619BCDF7100976214 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8959304719BCDF7100976214 /* Cocoa.framework */,
-				8959306919BCDF7200976214 /* XCTest.framework */,
-				8959304919BCDF7100976214 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8959304919BCDF7100976214 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8959304A19BCDF7100976214 /* AppKit.framework */,
-				8959304B19BCDF7100976214 /* CoreData.framework */,
-				8959304C19BCDF7100976214 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		8959304D19BCDF7100976214 /* Tundra */ = {
-			isa = PBXGroup;
-			children = (
-				89D0D57819D7601C0087959B /* SeriesInfo.h */,
-				89D0D57919D7601C0087959B /* SeriesInfo.m */,
-				89BF17F419C806BC00394973 /* XMLDictionary.h */,
-				89BF17F519C806BC00394973 /* XMLDictionary.m */,
-				89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */,
-				89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */,
-				8959308519BE0CC200976214 /* CDFMainWindowController.h */,
-				8959308619BE0CC200976214 /* CDFMainWindowController.m */,
-				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
-				89BF17E619C4DE2300394973 /* CDFManagingViewController.h */,
-				89BF17E719C4DE2300394973 /* CDFManagingViewController.m */,
-				8959308A19BE51C800976214 /* CDFSeriesInfoArrayController.h */,
-				8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */,
-				89BF17EE19C7E4A000394973 /* CDFTableView.h */,
-				89BF17EF19C7E4A000394973 /* CDFTableView.m */,
-				896CDAA819C2BFCF00A6734D /* CDFListViewController.h */,
-				896CDAA919C2BFCF00A6734D /* CDFListViewController.m */,
-				89D0D53B19D0EFDE0087959B /* CDFStatusValueTransformer.h */,
-				89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */,
-				8959305919BCDF7100976214 /* CDFAppDelegate.h */,
-				8959305A19BCDF7100976214 /* CDFAppDelegate.m */,
-				89BF17E119C4B5C300394973 /* CDFSearchViewController.h */,
-				89BF17E219C4B5C300394973 /* CDFSearchViewController.m */,
-				89D0D53F19D2528B0087959B /* CDFListView.xib */,
-				89D0D54119D505660087959B /* apikeys.h */,
-				89BF17E319C4B5C300394973 /* CDFSearchView.xib */,
-				8959305C19BCDF7200976214 /* MainMenu.xib */,
-				8959306219BCDF7200976214 /* Images.xcassets */,
-				8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */,
-				89D0D53E19D23F8D0087959B /* CDFUtils.h */,
-				8959304E19BCDF7100976214 /* Supporting Files */,
-			);
-			path = Tundra;
-			sourceTree = "<group>";
-		};
-		8959304E19BCDF7100976214 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				89D0D57F19D784360087959B /* Tundra-icon_16.png */,
-				89D0D58019D784360087959B /* Tundra-icon_32.png */,
-				89D0D58B19D784950087959B /* Tundra-icon_64.png */,
-				89D0D58119D784360087959B /* Tundra-icon_128.png */,
-				89D0D58219D784360087959B /* Tundra-icon_1024.png */,
-				89D0D58319D784360087959B /* Tundra-icon_256.png */,
-				89D0D58419D784360087959B /* Tundra-icon_512.png */,
-				8959304F19BCDF7100976214 /* Tundra-Info.plist */,
-				8959305019BCDF7100976214 /* InfoPlist.strings */,
-				8959305319BCDF7100976214 /* main.m */,
-				8959305519BCDF7100976214 /* Tundra-Prefix.pch */,
-				8959305619BCDF7100976214 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8959306E19BCDF7200976214 /* TundraTests */ = {
-			isa = PBXGroup;
-			children = (
-				8959307419BCDF7200976214 /* TundraTests.m */,
-				8959306F19BCDF7200976214 /* Supporting Files */,
-			);
-			path = TundraTests;
-			sourceTree = "<group>";
-		};
-		8959306F19BCDF7200976214 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8959307019BCDF7200976214 /* TundraTests-Info.plist */,
-				8959307119BCDF7200976214 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		8959304319BCDF7100976214 /* Tundra */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8959307819BCDF7200976214 /* Build configuration list for PBXNativeTarget "Tundra" */;
-			buildPhases = (
-				8959304019BCDF7100976214 /* Sources */,
-				8959304119BCDF7100976214 /* Frameworks */,
-				8959304219BCDF7100976214 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Tundra;
-			productName = Tundra;
-			productReference = 8959304419BCDF7100976214 /* Tundra.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8959306719BCDF7200976214 /* TundraTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8959307B19BCDF7200976214 /* Build configuration list for PBXNativeTarget "TundraTests" */;
-			buildPhases = (
-				8959306419BCDF7200976214 /* Sources */,
-				8959306519BCDF7200976214 /* Frameworks */,
-				8959306619BCDF7200976214 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8959306D19BCDF7200976214 /* PBXTargetDependency */,
-			);
-			name = TundraTests;
-			productName = TundraTests;
-			productReference = 8959306819BCDF7200976214 /* TundraTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		8959303C19BCDF7100976214 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = CDF;
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = "Christopher Fu";
-				TargetAttributes = {
-					8959306719BCDF7200976214 = {
-						TestTargetID = 8959304319BCDF7100976214;
-					};
-				};
-			};
-			buildConfigurationList = 8959303F19BCDF7100976214 /* Build configuration list for PBXProject "Tundra" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 8959303B19BCDF7100976214;
-			productRefGroup = 8959304519BCDF7100976214 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				8959304319BCDF7100976214 /* Tundra */,
-				8959306719BCDF7200976214 /* TundraTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		8959304219BCDF7100976214 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89D0D58919D784360087959B /* Tundra-icon_256.png in Resources */,
-				89D0D58719D784360087959B /* Tundra-icon_128.png in Resources */,
-				89D0D54019D2528B0087959B /* CDFListView.xib in Resources */,
-				8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */,
-				8959305219BCDF7100976214 /* InfoPlist.strings in Resources */,
-				89D0D58619D784360087959B /* Tundra-icon_32.png in Resources */,
-				8959306319BCDF7200976214 /* Images.xcassets in Resources */,
-				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
-				89D0D58C19D784950087959B /* Tundra-icon_64.png in Resources */,
-				89D0D58A19D784360087959B /* Tundra-icon_512.png in Resources */,
-				89D0D58519D784360087959B /* Tundra-icon_16.png in Resources */,
-				8959305E19BCDF7200976214 /* MainMenu.xib in Resources */,
-				89D0D58819D784360087959B /* Tundra-icon_1024.png in Resources */,
-				89BF17E519C4B5C300394973 /* CDFSearchView.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8959306619BCDF7200976214 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8959307319BCDF7200976214 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		8959304019BCDF7100976214 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				89BF17F619C806BC00394973 /* XMLDictionary.m in Sources */,
-				8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */,
-				89D0D53D19D0EFDE0087959B /* CDFStatusValueTransformer.m in Sources */,
-				8959306119BCDF7200976214 /* Tundra.xcdatamodeld in Sources */,
-				89BF17E819C4DE2300394973 /* CDFManagingViewController.m in Sources */,
-				89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */,
-				89BF17E419C4B5C300394973 /* CDFSearchViewController.m in Sources */,
-				8959305B19BCDF7100976214 /* CDFAppDelegate.m in Sources */,
-				896CDAAA19C2BFCF00A6734D /* CDFListViewController.m in Sources */,
-				8959305419BCDF7100976214 /* main.m in Sources */,
-				89BF17F019C7E4A000394973 /* CDFTableView.m in Sources */,
-				89D0D57A19D7601C0087959B /* SeriesInfo.m in Sources */,
-				8959308819BE0CC200976214 /* CDFMainWindowController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8959306419BCDF7200976214 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8959307519BCDF7200976214 /* TundraTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8959306D19BCDF7200976214 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8959304319BCDF7100976214 /* Tundra */;
-			targetProxy = 8959306C19BCDF7200976214 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8959305019BCDF7100976214 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8959305119BCDF7100976214 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8959305619BCDF7100976214 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8959305719BCDF7100976214 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		8959305C19BCDF7200976214 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8959305D19BCDF7200976214 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		8959307119BCDF7200976214 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8959307219BCDF7200976214 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		8959307619BCDF7200976214 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		8959307719BCDF7200976214 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		8959307919BCDF7200976214 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tundra/Tundra-Prefix.pch";
-				INFOPLIST_FILE = "Tundra/Tundra-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		8959307A19BCDF7200976214 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tundra/Tundra-Prefix.pch";
-				INFOPLIST_FILE = "Tundra/Tundra-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		8959307C19BCDF7200976214 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tundra.app/Contents/MacOS/Tundra";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tundra/Tundra-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "TundraTests/TundraTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		8959307D19BCDF7200976214 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tundra.app/Contents/MacOS/Tundra";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tundra/Tundra-Prefix.pch";
-				INFOPLIST_FILE = "TundraTests/TundraTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		8959303F19BCDF7100976214 /* Build configuration list for PBXProject "Tundra" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8959307619BCDF7200976214 /* Debug */,
-				8959307719BCDF7200976214 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8959307819BCDF7200976214 /* Build configuration list for PBXNativeTarget "Tundra" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8959307919BCDF7200976214 /* Debug */,
-				8959307A19BCDF7200976214 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8959307B19BCDF7200976214 /* Build configuration list for PBXNativeTarget "TundraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8959307C19BCDF7200976214 /* Debug */,
-				8959307D19BCDF7200976214 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8959305F19BCDF7200976214 /* Tundra.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				89D0D53419CCB8B20087959B /* Tundra 5.xcdatamodel */,
-				89D0D54219D509180087959B /* Tundra 6.xcdatamodel */,
-				89D0D57719D75FB80087959B /* Tundra 7.xcdatamodel */,
-				89BF17F719CA023D00394973 /* Tundra 3.xcdatamodel */,
-				89BF17FB19CA6D3300394973 /* Tundra 4.xcdatamodel */,
-				89BF17E919C55F7200394973 /* Tundra 2.xcdatamodel */,
-				8959306019BCDF7200976214 /* Tundra.xcdatamodel */,
-			);
-			currentVersion = 89D0D57719D75FB80087959B /* Tundra 7.xcdatamodel */;
-			path = Tundra.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 8959303C19BCDF7100976214 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>22785603C9452AB8DC901353</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Tundra.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>74F48ABC19D3AFAD9EE7D42E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Tundra.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Tundra/Pods-Tundra.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959303B19BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959304D19BCDF7100976214</string>
+				<string>8959306E19BCDF7200976214</string>
+				<string>8959304619BCDF7100976214</string>
+				<string>8959304519BCDF7100976214</string>
+				<string>CA9638B9263E51980F0FBA16</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959303C19BCDF7100976214</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>CDF</string>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Christopher Fu</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>8959306719BCDF7200976214</key>
+					<dict>
+						<key>TestTargetID</key>
+						<string>8959304319BCDF7100976214</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>8959303F19BCDF7100976214</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>8959303B19BCDF7100976214</string>
+			<key>productRefGroup</key>
+			<string>8959304519BCDF7100976214</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>8959304319BCDF7100976214</string>
+				<string>8959306719BCDF7200976214</string>
+			</array>
+		</dict>
+		<key>8959303F19BCDF7100976214</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8959307619BCDF7200976214</string>
+				<string>8959307719BCDF7200976214</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8959304019BCDF7100976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>89BF17F619C806BC00394973</string>
+				<string>8959308C19BE51C800976214</string>
+				<string>89D0D53D19D0EFDE0087959B</string>
+				<string>8959306119BCDF7200976214</string>
+				<string>89BF17E819C4DE2300394973</string>
+				<string>89BF17E019C41BD000394973</string>
+				<string>89BF17E419C4B5C300394973</string>
+				<string>8959305B19BCDF7100976214</string>
+				<string>896CDAAA19C2BFCF00A6734D</string>
+				<string>8959305419BCDF7100976214</string>
+				<string>89BF17F019C7E4A000394973</string>
+				<string>89D0D57A19D7601C0087959B</string>
+				<string>8959308819BE0CC200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959304119BCDF7100976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8959304819BCDF7100976214</string>
+				<string>AA3BC251F39FF9A6ADD6468B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959304219BCDF7100976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>89D0D58919D784360087959B</string>
+				<string>89D0D58719D784360087959B</string>
+				<string>89D0D54019D2528B0087959B</string>
+				<string>8959308919BE0CC200976214</string>
+				<string>8959305219BCDF7100976214</string>
+				<string>89D0D58619D784360087959B</string>
+				<string>8959306319BCDF7200976214</string>
+				<string>8959305819BCDF7100976214</string>
+				<string>89D0D58C19D784950087959B</string>
+				<string>89D0D58A19D784360087959B</string>
+				<string>89D0D58519D784360087959B</string>
+				<string>8959305E19BCDF7200976214</string>
+				<string>89D0D58819D784360087959B</string>
+				<string>89BF17E519C4B5C300394973</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959304319BCDF7100976214</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8959307819BCDF7200976214</string>
+			<key>buildPhases</key>
+			<array>
+				<string>ABE843395485ED9BBED3DCB9</string>
+				<string>8959304019BCDF7100976214</string>
+				<string>8959304119BCDF7100976214</string>
+				<string>8959304219BCDF7100976214</string>
+				<string>95FB637360B0B882172C6E69</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Tundra</string>
+			<key>productName</key>
+			<string>Tundra</string>
+			<key>productReference</key>
+			<string>8959304419BCDF7100976214</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>8959304419BCDF7100976214</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Tundra.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>8959304519BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959304419BCDF7100976214</string>
+				<string>8959306819BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959304619BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959304719BCDF7100976214</string>
+				<string>8959306919BCDF7200976214</string>
+				<string>8959304919BCDF7100976214</string>
+				<string>22785603C9452AB8DC901353</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959304719BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8959304819BCDF7100976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959304719BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959304919BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959304A19BCDF7100976214</string>
+				<string>8959304B19BCDF7100976214</string>
+				<string>8959304C19BCDF7100976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Other Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959304A19BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AppKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AppKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8959304B19BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8959304C19BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>8959304D19BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89D0D57819D7601C0087959B</string>
+				<string>89D0D57919D7601C0087959B</string>
+				<string>89BF17F419C806BC00394973</string>
+				<string>89BF17F519C806BC00394973</string>
+				<string>89BF17DE19C41BD000394973</string>
+				<string>89BF17DF19C41BD000394973</string>
+				<string>8959308519BE0CC200976214</string>
+				<string>8959308619BE0CC200976214</string>
+				<string>8959308719BE0CC200976214</string>
+				<string>89BF17E619C4DE2300394973</string>
+				<string>89BF17E719C4DE2300394973</string>
+				<string>8959308A19BE51C800976214</string>
+				<string>8959308B19BE51C800976214</string>
+				<string>89BF17EE19C7E4A000394973</string>
+				<string>89BF17EF19C7E4A000394973</string>
+				<string>896CDAA819C2BFCF00A6734D</string>
+				<string>896CDAA919C2BFCF00A6734D</string>
+				<string>89D0D53B19D0EFDE0087959B</string>
+				<string>89D0D53C19D0EFDE0087959B</string>
+				<string>8959305919BCDF7100976214</string>
+				<string>8959305A19BCDF7100976214</string>
+				<string>89BF17E119C4B5C300394973</string>
+				<string>89BF17E219C4B5C300394973</string>
+				<string>89D0D53F19D2528B0087959B</string>
+				<string>89D0D54119D505660087959B</string>
+				<string>89BF17E319C4B5C300394973</string>
+				<string>8959305C19BCDF7200976214</string>
+				<string>8959306219BCDF7200976214</string>
+				<string>8959305F19BCDF7200976214</string>
+				<string>89D0D53E19D23F8D0087959B</string>
+				<string>8959304E19BCDF7100976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Tundra</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959304E19BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89D0D57F19D784360087959B</string>
+				<string>89D0D58019D784360087959B</string>
+				<string>89D0D58B19D784950087959B</string>
+				<string>89D0D58119D784360087959B</string>
+				<string>89D0D58219D784360087959B</string>
+				<string>89D0D58319D784360087959B</string>
+				<string>89D0D58419D784360087959B</string>
+				<string>8959304F19BCDF7100976214</string>
+				<string>8959305019BCDF7100976214</string>
+				<string>8959305319BCDF7100976214</string>
+				<string>8959305519BCDF7100976214</string>
+				<string>8959305619BCDF7100976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959304F19BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Tundra-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305019BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959305119BCDF7100976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305119BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305219BCDF7100976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305019BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959305319BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305419BCDF7100976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305319BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959305519BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Tundra-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305619BCDF7100976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959305719BCDF7100976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305719BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.rtf</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305819BCDF7100976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305619BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959305919BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305A19BCDF7100976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305B19BCDF7100976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305A19BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959305C19BCDF7200976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959305D19BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305D19BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959305E19BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305C19BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959305F19BCDF7200976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>89D0D53419CCB8B20087959B</string>
+				<string>89D0D54219D509180087959B</string>
+				<string>89D0D57719D75FB80087959B</string>
+				<string>89BF17F719CA023D00394973</string>
+				<string>89BF17FB19CA6D3300394973</string>
+				<string>89BF17E919C55F7200394973</string>
+				<string>8959306019BCDF7200976214</string>
+			</array>
+			<key>currentVersion</key>
+			<string>89D0D57719D75FB80087959B</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>Tundra.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>8959306019BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959306119BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959305F19BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959306219BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959306319BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959306219BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959306419BCDF7200976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8959307519BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959306519BCDF7200976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8959306B19BCDF7200976214</string>
+				<string>8959306A19BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959306619BCDF7200976214</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>8959307319BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8959306719BCDF7200976214</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8959307B19BCDF7200976214</string>
+			<key>buildPhases</key>
+			<array>
+				<string>8959306419BCDF7200976214</string>
+				<string>8959306519BCDF7200976214</string>
+				<string>8959306619BCDF7200976214</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>8959306D19BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>TundraTests</string>
+			<key>productName</key>
+			<string>TundraTests</string>
+			<key>productReference</key>
+			<string>8959306819BCDF7200976214</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>8959306819BCDF7200976214</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>TundraTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>8959306919BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>XCTest.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/XCTest.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>8959306A19BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959306919BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959306B19BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959304719BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959306C19BCDF7200976214</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>8959303C19BCDF7100976214</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>8959304319BCDF7100976214</string>
+			<key>remoteInfo</key>
+			<string>Tundra</string>
+		</dict>
+		<key>8959306D19BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>8959304319BCDF7100976214</string>
+			<key>targetProxy</key>
+			<string>8959306C19BCDF7200976214</string>
+		</dict>
+		<key>8959306E19BCDF7200976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959307419BCDF7200976214</string>
+				<string>8959306F19BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>TundraTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959306F19BCDF7200976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959307019BCDF7200976214</string>
+				<string>8959307119BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959307019BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>TundraTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959307119BCDF7200976214</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8959307219BCDF7200976214</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959307219BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959307319BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959307119BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959307419BCDF7200976214</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>TundraTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959307519BCDF7200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959307419BCDF7200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959307619BCDF7200976214</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8959307719BCDF7200976214</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.9</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8959307819BCDF7200976214</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8959307919BCDF7200976214</string>
+				<string>8959307A19BCDF7200976214</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8959307919BCDF7200976214</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>8C6CDA6E530A8B80749113EC</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tundra/Tundra-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Tundra/Tundra-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8959307A19BCDF7200976214</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>74F48ABC19D3AFAD9EE7D42E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tundra/Tundra-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Tundra/Tundra-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8959307B19BCDF7200976214</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8959307C19BCDF7200976214</string>
+				<string>8959307D19BCDF7200976214</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8959307C19BCDF7200976214</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Tundra.app/Contents/MacOS/Tundra</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tundra/Tundra-Prefix.pch</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>TundraTests/TundraTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8959307D19BCDF7200976214</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Tundra.app/Contents/MacOS/Tundra</string>
+				<key>COMBINE_HIDPI_IMAGES</key>
+				<string>YES</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Tundra/Tundra-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>TundraTests/TundraTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>TEST_HOST</key>
+				<string>$(BUNDLE_LOADER)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>xctest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8959308519BE0CC200976214</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFMainWindowController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959308619BE0CC200976214</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFMainWindowController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959308719BE0CC200976214</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>CDFMainWindowController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959308819BE0CC200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959308619BE0CC200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959308919BE0CC200976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959308719BE0CC200976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8959308A19BE51C800976214</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFSeriesInfoArrayController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959308B19BE51C800976214</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFSeriesInfoArrayController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8959308C19BE51C800976214</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8959308B19BE51C800976214</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>896CDAA819C2BFCF00A6734D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFListViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>896CDAA919C2BFCF00A6734D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFListViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>896CDAAA19C2BFCF00A6734D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>896CDAA919C2BFCF00A6734D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17DE19C41BD000394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSOutlineView+Additions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17DF19C41BD000394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>NSOutlineView+Additions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E019C41BD000394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17DF19C41BD000394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17E119C4B5C300394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFSearchViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E219C4B5C300394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFSearchViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E319C4B5C300394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>CDFSearchView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E419C4B5C300394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17E219C4B5C300394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17E519C4B5C300394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17E319C4B5C300394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17E619C4DE2300394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFManagingViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E719C4DE2300394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFManagingViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17E819C4DE2300394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17E719C4DE2300394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17E919C55F7200394973</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 2.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17EE19C7E4A000394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFTableView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17EF19C7E4A000394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFTableView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17F019C7E4A000394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17EF19C7E4A000394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17F419C806BC00394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMLDictionary.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17F519C806BC00394973</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMLDictionary.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17F619C806BC00394973</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89BF17F519C806BC00394973</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89BF17F719CA023D00394973</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 3.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89BF17FB19CA6D3300394973</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 4.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D53419CCB8B20087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 5.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D53B19D0EFDE0087959B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFStatusValueTransformer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D53C19D0EFDE0087959B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>CDFStatusValueTransformer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D53D19D0EFDE0087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D53C19D0EFDE0087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D53E19D23F8D0087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>CDFUtils.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D53F19D2528B0087959B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>path</key>
+			<string>CDFListView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D54019D2528B0087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D53F19D2528B0087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D54119D505660087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>apikeys.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D54219D509180087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 6.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D57719D75FB80087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Tundra 7.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D57819D7601C0087959B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SeriesInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D57919D7601C0087959B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SeriesInfo.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D57A19D7601C0087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D57919D7601C0087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D57F19D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_16.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58019D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_32.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58119D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_128.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58219D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_1024.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58319D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_256.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58419D784360087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_512.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58519D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D57F19D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58619D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58019D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58719D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58119D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58819D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58219D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58919D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58319D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58A19D784360087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58419D784360087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>89D0D58B19D784950087959B</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>image.png</string>
+			<key>path</key>
+			<string>Tundra-icon_64.png</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>89D0D58C19D784950087959B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>89D0D58B19D784950087959B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8C6CDA6E530A8B80749113EC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Tundra.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Tundra/Pods-Tundra.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95FB637360B0B882172C6E69</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Tundra/Pods-Tundra-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>AA3BC251F39FF9A6ADD6468B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>22785603C9452AB8DC901353</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>ABE843395485ED9BBED3DCB9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>CA9638B9263E51980F0FBA16</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8C6CDA6E530A8B80749113EC</string>
+				<string>74F48ABC19D3AFAD9EE7D42E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>8959303C19BCDF7100976214</string>
+</dict>
+</plist>

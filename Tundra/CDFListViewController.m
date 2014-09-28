@@ -20,7 +20,7 @@
 
 #import "CDFListViewController.h"
 #import "CDFMainWindowController.h"
-#import "XMLDictionary.h"
+#import <XMLDictionary/XMLDictionary.h>
 #import "SeriesInfo.h"
 #import "apikeys.h"
 
@@ -284,6 +284,7 @@ static void *CDFKVOContext;
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         request.HTTPBody = [[NSString stringWithFormat:@"data=%@", [seriesDict XMLString]] dataUsingEncoding:NSUTF8StringEncoding];
         request.HTTPMethod = @"POST";
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
         {
             if (!error)

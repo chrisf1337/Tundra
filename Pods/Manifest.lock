@@ -1,0 +1,13 @@
+PODS:
+  - SSKeychain (1.2.2)
+  - XMLDictionary (1.4)
+
+DEPENDENCIES:
+  - SSKeychain (~> 1.2)
+  - XMLDictionary (~> 1.4)
+
+SPEC CHECKSUMS:
+  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
+
+COCOAPODS: 0.34.1
