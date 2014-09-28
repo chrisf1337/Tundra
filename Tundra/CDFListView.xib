@@ -14,6 +14,7 @@
                 <outlet property="seriesInfoDroppedArrayController" destination="U3h-Cr-lO6" id="Ghr-PJ-r7W"/>
                 <outlet property="seriesInfoOnHoldArrayController" destination="P0I-Xy-Puy" id="TDg-11-9Rm"/>
                 <outlet property="seriesInfoPlanToWatchArrayController" destination="hWc-Vp-Yu9" id="pub-9M-95x"/>
+                <outlet property="statusField" destination="xP6-bo-JER" id="LXC-82-Fxd"/>
                 <outlet property="tableView" destination="3vf-fF-Eg1" id="Nif-fO-foX"/>
                 <outlet property="view" destination="QaA-WU-57p" id="KsO-cT-trg"/>
             </connections>

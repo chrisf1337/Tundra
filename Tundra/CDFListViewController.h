@@ -34,6 +34,7 @@
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
+@property (weak) IBOutlet NSTextField *statusField;
 
 @property (strong) NSArray *statusNames;
 
