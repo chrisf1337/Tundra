@@ -32,6 +32,13 @@
 		89D0D53D19D0EFDE0087959B /* CDFStatusValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D53C19D0EFDE0087959B /* CDFStatusValueTransformer.m */; };
 		89D0D54019D2528B0087959B /* CDFListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D53F19D2528B0087959B /* CDFListView.xib */; };
 		89D0D57A19D7601C0087959B /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D0D57919D7601C0087959B /* SeriesInfo.m */; };
+		89D0D58519D784360087959B /* Tundra-icon_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D57F19D784360087959B /* Tundra-icon_16.png */; };
+		89D0D58619D784360087959B /* Tundra-icon_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58019D784360087959B /* Tundra-icon_32.png */; };
+		89D0D58719D784360087959B /* Tundra-icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58119D784360087959B /* Tundra-icon_128.png */; };
+		89D0D58819D784360087959B /* Tundra-icon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58219D784360087959B /* Tundra-icon_1024.png */; };
+		89D0D58919D784360087959B /* Tundra-icon_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58319D784360087959B /* Tundra-icon_256.png */; };
+		89D0D58A19D784360087959B /* Tundra-icon_512.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58419D784360087959B /* Tundra-icon_512.png */; };
+		89D0D58C19D784950087959B /* Tundra-icon_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 89D0D58B19D784950087959B /* Tundra-icon_64.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +103,13 @@
 		89D0D57719D75FB80087959B /* Tundra 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 7.xcdatamodel"; sourceTree = "<group>"; };
 		89D0D57819D7601C0087959B /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
 		89D0D57919D7601C0087959B /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
+		89D0D57F19D784360087959B /* Tundra-icon_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_16.png"; sourceTree = "<group>"; };
+		89D0D58019D784360087959B /* Tundra-icon_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_32.png"; sourceTree = "<group>"; };
+		89D0D58119D784360087959B /* Tundra-icon_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_128.png"; sourceTree = "<group>"; };
+		89D0D58219D784360087959B /* Tundra-icon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_1024.png"; sourceTree = "<group>"; };
+		89D0D58319D784360087959B /* Tundra-icon_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_256.png"; sourceTree = "<group>"; };
+		89D0D58419D784360087959B /* Tundra-icon_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_512.png"; sourceTree = "<group>"; };
+		89D0D58B19D784950087959B /* Tundra-icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tundra-icon_64.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +213,13 @@
 		8959304E19BCDF7100976214 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89D0D57F19D784360087959B /* Tundra-icon_16.png */,
+				89D0D58019D784360087959B /* Tundra-icon_32.png */,
+				89D0D58B19D784950087959B /* Tundra-icon_64.png */,
+				89D0D58119D784360087959B /* Tundra-icon_128.png */,
+				89D0D58219D784360087959B /* Tundra-icon_1024.png */,
+				89D0D58319D784360087959B /* Tundra-icon_256.png */,
+				89D0D58419D784360087959B /* Tundra-icon_512.png */,
 				8959304F19BCDF7100976214 /* Tundra-Info.plist */,
 				8959305019BCDF7100976214 /* InfoPlist.strings */,
 				8959305319BCDF7100976214 /* main.m */,
@@ -303,12 +324,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D0D58919D784360087959B /* Tundra-icon_256.png in Resources */,
+				89D0D58719D784360087959B /* Tundra-icon_128.png in Resources */,
 				89D0D54019D2528B0087959B /* CDFListView.xib in Resources */,
 				8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */,
 				8959305219BCDF7100976214 /* InfoPlist.strings in Resources */,
+				89D0D58619D784360087959B /* Tundra-icon_32.png in Resources */,
 				8959306319BCDF7200976214 /* Images.xcassets in Resources */,
 				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
+				89D0D58C19D784950087959B /* Tundra-icon_64.png in Resources */,
+				89D0D58A19D784360087959B /* Tundra-icon_512.png in Resources */,
+				89D0D58519D784360087959B /* Tundra-icon_16.png in Resources */,
 				8959305E19BCDF7200976214 /* MainMenu.xib in Resources */,
+				89D0D58819D784360087959B /* Tundra-icon_1024.png in Resources */,
 				89BF17E519C4B5C300394973 /* CDFSearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
