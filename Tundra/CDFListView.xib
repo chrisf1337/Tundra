@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CDFListViewController">
             <connections>
                 <outlet property="popUpStatusNames" destination="JyQ-y1-SJj" id="uTr-fN-zMJ"/>
+                <outlet property="removeButton" destination="4Si-fm-ccG" id="K7n-y7-vv5"/>
                 <outlet property="searchField" destination="RZ5-ly-DxO" id="9P7-6a-Oki"/>
                 <outlet property="seriesInfoAllArrayController" destination="fnw-el-TGs" id="yLk-tF-WEy"/>
                 <outlet property="seriesInfoCompletedArrayController" destination="WhL-Xf-2Tf" id="hrx-Qx-DCs"/>

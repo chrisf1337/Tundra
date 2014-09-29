@@ -241,31 +241,41 @@ static void *CDFKVOContext;
     [self.searchField unbind:NSPredicateBinding];
     [self.statusField unbind:[NSString stringWithFormat:@"%@1", NSDisplayPatternValueBinding]]; // @"displayPatternValue1"
     [self.statusField unbind:[NSString stringWithFormat:@"%@2", NSDisplayPatternValueBinding]]; // @"displayPatternValue2"
+    [self.removeButton unbind:NSEnabledBinding];
     [self.tableView bind:NSContentBinding
                 toObject:arrayController
              withKeyPath:@"arrangedObjects"
-                 options:[NSDictionary dictionaryWithObject:NSOptionsKey forKey:NSRaisesForNotApplicableKeysBindingOption]];
+                 options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSRaisesForNotApplicableKeysBindingOption]];
     [self.tableView bind:NSSelectionIndexesBinding
                 toObject:arrayController
              withKeyPath:@"selectionIndexes"
-                 options:[NSDictionary dictionaryWithObject:NSOptionsKey forKey:NSRaisesForNotApplicableKeysBindingOption]];
+                 options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSRaisesForNotApplicableKeysBindingOption]];
     [self.tableView bind:NSSortDescriptorsBinding
                 toObject:arrayController
              withKeyPath:@"sortDescriptors"
-                 options:[NSDictionary dictionaryWithObject:NSOptionsKey forKey:NSRaisesForNotApplicableKeysBindingOption]];
+                 options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSRaisesForNotApplicableKeysBindingOption]];
     [self.searchField bind:NSPredicateBinding
                   toObject:arrayController
                withKeyPath:@"filterPredicate"
                    options:[NSDictionary dictionaryWithObjectsAndKeys:@"predicate", NSDisplayNameBindingOption,
-                            @"name contains[cd] $value", NSPredicateFormatBindingOption, nil]];
+                            @"name contains[cd] $value", NSPredicateFormatBindingOption, [NSNumber numberWithBool:YES],
+                            NSRaisesForNotApplicableKeysBindingOption, nil]];
     [self.statusField bind:[NSString stringWithFormat:@"%@1", NSDisplayPatternValueBinding]
                   toObject:arrayController
                withKeyPath:@"selection.@count"
-                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption, nil]];
+                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption,
+                            [NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, nil]];
     [self.statusField bind:[NSString stringWithFormat:@"%@2", NSDisplayPatternValueBinding]
                   toObject:arrayController
                withKeyPath:@"arrangedObjects.@count"
-                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption, nil]];
+                   options:[NSDictionary dictionaryWithObjectsAndKeys:@"%{value1}@ of %{value2}@ series", NSDisplayPatternBindingOption,
+                            [NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, nil]];
+    [self.removeButton bind:NSEnabledBinding
+                   toObject:arrayController
+                withKeyPath:@"canRemove"
+                    options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSRaisesForNotApplicableKeysBindingOption]];
+    
+    self.removeButton.target = arrayController;
 }
 
 - (void)startObservingSeries:(SeriesInfo *)series

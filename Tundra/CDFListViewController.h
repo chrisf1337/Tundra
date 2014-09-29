@@ -40,6 +40,7 @@
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSTextField *statusField;
+@property (weak) IBOutlet NSButton *removeButton;
 
 @property (strong) NSArray *statusNames;
 
