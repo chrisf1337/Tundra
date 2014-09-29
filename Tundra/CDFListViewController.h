@@ -45,12 +45,15 @@
 @property (strong) NSArray *statusNames;
 
 - (IBAction)addSeries:(id)sender;
+- (IBAction)removeSeries:(id)sender;
 - (IBAction)pullData:(id)sender;
 
 - (void)sortList;
 - (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController;
 - (void)startObservingSeries:(SeriesInfo *)series;
 - (void)stopObservingSeries:(SeriesInfo *)series;
+- (void)refreshAllSeriesArray;
+- (void)fetchAllSeries;
 
 - (IBAction)dumpData:(id)sender;
 

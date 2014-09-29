@@ -265,7 +265,7 @@ CA
 </string>
                     </buttonCell>
                     <connections>
-                        <action selector="remove:" target="fnw-el-TGs" id="1DL-P6-SwV"/>
+                        <action selector="removeSeries:" target="-2" id="deM-ew-G7k"/>
                         <binding destination="fnw-el-TGs" name="enabled" keyPath="canRemove" id="Kh4-Ow-Uck"/>
                     </connections>
                 </button>

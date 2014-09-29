@@ -50,7 +50,6 @@ static void *CDFKVOContext;
     {
         self.title = @"Series List View";
         self.statusNames = @[@"Currently Watching", @"Plan to Watch", @"Completed", @"On Hold", @"Dropped"];
-        self.currentSeriesInfoArrayController = self.seriesInfoAllArrayController;
         self.currentlySelectedStatus = 1;
     }
     return self;
@@ -59,82 +58,12 @@ static void *CDFKVOContext;
 - (void)loadView
 {
     [super loadView];
+    self.currentSeriesInfoArrayController = self.seriesInfoAllArrayController;
     [self sortList];
-    
-    NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
-    allSeries.entity = entity;
-    NSError *error = nil;
-    self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
-    
+    [self refreshAllSeriesArray];
     // deletion code moved to pullData:
+    [self fetchAllSeries];
     
-    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
-    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    
-    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
-    {
-        if (!error)
-        {
-            NSError *error;
-            NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
-            nf.numberStyle = NSNumberFormatterDecimalStyle;
-            NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLData:data];
-            NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
-            for (NSDictionary *series in animeSeries)
-            {
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
-                NSArray *results = [self.allSeriesArray filteredArrayUsingPredicate:predicate];
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                dateFormatter.dateFormat = @"yyyy-MM-dd";
-                if (results.count == 0)
-                {
-                    NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
-                    SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                           inManagedObjectContext:self.managedObjectContext];
-                    seriesInfo.name = [series objectForKey:@"series_title"];
-                    seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
-                    seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
-                    seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
-                    seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
-                    seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
-                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
-                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
-                }
-                else if (results.count == 1)
-                {
-                    if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
-                    {
-                        NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
-                        [self.managedObjectContext deleteObject:results[0]];
-                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                               inManagedObjectContext:self.managedObjectContext];
-                        seriesInfo.name = [series objectForKey:@"series_title"];
-                        seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
-                        seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
-                        seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
-                        seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
-                        seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
-                        seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
-                        seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
-                    }
-                }
-            }
-            [self.managedObjectContext save:&error];
-            NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
-            allSeries.entity = entity;
-            self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
-            for (SeriesInfo *info in self.allSeriesArray)
-            {
-                [self startObservingSeries:info];
-            }
-        }
-    };
-    
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
-                                                 completionHandler:completionHandler];
-    [dataTask resume];
 }
 
 - (IBAction)addSeries:(id)sender
@@ -142,8 +71,18 @@ static void *CDFKVOContext;
     [self.mainWindowController showAddSheet];
 }
 
+- (IBAction)removeSeries:(id)sender
+{
+    for (SeriesInfo *series in self.currentSeriesInfoArrayController.selectedObjects)
+    {
+        [self stopObservingSeries:series];
+    }
+    [self.currentSeriesInfoArrayController remove:self];
+}
+
 - (IBAction)pullData:(id)sender
 {
+    [self refreshAllSeriesArray];
     for (SeriesInfo *info in self.allSeriesArray)
     {
         [self stopObservingSeries:info];
@@ -274,8 +213,6 @@ static void *CDFKVOContext;
                    toObject:arrayController
                 withKeyPath:@"canRemove"
                     options:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSRaisesForNotApplicableKeysBindingOption]];
-    
-    self.removeButton.target = arrayController;
 }
 
 - (void)startObservingSeries:(SeriesInfo *)series
@@ -324,6 +261,85 @@ static void *CDFKVOContext;
     {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (void)refreshAllSeriesArray
+{
+    NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
+    allSeries.entity = entity;
+    NSError *error = nil;
+    self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
+}
+
+- (void)fetchAllSeries
+{
+    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
+    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        if (!error)
+        {
+            NSError *error;
+            NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
+            nf.numberStyle = NSNumberFormatterDecimalStyle;
+            NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLData:data];
+            NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
+            for (NSDictionary *series in animeSeries)
+            {
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
+                NSArray *results = [self.allSeriesArray filteredArrayUsingPredicate:predicate];
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                dateFormatter.dateFormat = @"yyyy-MM-dd";
+                if (results.count == 0)
+                {
+                    NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
+                    SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                           inManagedObjectContext:self.managedObjectContext];
+                    seriesInfo.name = [series objectForKey:@"series_title"];
+                    seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
+                    seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
+                    seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
+                    seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
+                    seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
+                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
+                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
+                }
+                else if (results.count == 1)
+                {
+                    if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
+                    {
+                        NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
+                        [self.managedObjectContext deleteObject:results[0]];
+                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                               inManagedObjectContext:self.managedObjectContext];
+                        seriesInfo.name = [series objectForKey:@"series_title"];
+                        seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
+                        seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
+                        seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
+                        seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
+                        seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
+                        seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
+                        seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
+                    }
+                }
+            }
+            [self.managedObjectContext save:&error];
+            NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
+            allSeries.entity = entity;
+            self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
+            for (SeriesInfo *info in self.allSeriesArray)
+            {
+                [self startObservingSeries:info];
+            }
+        }
+    };
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
+                                                 completionHandler:completionHandler];
+    [dataTask resume];
 }
 
 @end
