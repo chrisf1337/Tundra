@@ -59,10 +59,16 @@ static void *CDFKVOContext;
 {
     [super loadView];
     self.currentSeriesInfoArrayController = self.seriesInfoAllArrayController;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleDataModelChange:)
+                                                 name:NSManagedObjectContextObjectsDidChangeNotification
+                                               object:self.managedObjectContext];
+    [self fetchAllSeries];
     [self sortList];
     [self refreshAllSeriesArray];
     // deletion code moved to pullData:
-    [self fetchAllSeries];
+
     
 }
 
@@ -85,6 +91,7 @@ static void *CDFKVOContext;
     [self refreshAllSeriesArray];
     for (SeriesInfo *info in self.allSeriesArray)
     {
+        NSLog(@"%@", info.name);
         [self stopObservingSeries:info];
         [self.managedObjectContext deleteObject:info];
     }
@@ -279,6 +286,8 @@ static void *CDFKVOContext;
     
     void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
     {
+//        NSManagedObjectContext *managedObjectContext = [self createNewManagedObjectContext];
+        NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
         if (!error)
         {
             NSError *error;
@@ -296,7 +305,7 @@ static void *CDFKVOContext;
                 {
                     NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
                     SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                           inManagedObjectContext:self.managedObjectContext];
+                                                                           inManagedObjectContext:managedObjectContext];
                     seriesInfo.name = [series objectForKey:@"series_title"];
                     seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
                     seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
@@ -311,9 +320,10 @@ static void *CDFKVOContext;
                     if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
                     {
                         NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
-                        [self.managedObjectContext deleteObject:results[0]];
-                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                               inManagedObjectContext:self.managedObjectContext];
+//                        [self.managedObjectContext deleteObject:results[0]];
+//                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+//                                                                               inManagedObjectContext:self.managedObjectContext];
+                        SeriesInfo *seriesInfo = results[0];
                         seriesInfo.name = [series objectForKey:@"series_title"];
                         seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
                         seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
@@ -325,11 +335,12 @@ static void *CDFKVOContext;
                     }
                 }
             }
-            [self.managedObjectContext save:&error];
+            [managedObjectContext save:&error];
             NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:managedObjectContext];
             allSeries.entity = entity;
-            self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
+            self.allSeriesArray = [managedObjectContext executeFetchRequest:allSeries error:&error];
+            NSLog(@"%lu", self.allSeriesArray.count);
             for (SeriesInfo *info in self.allSeriesArray)
             {
                 [self startObservingSeries:info];
@@ -340,6 +351,26 @@ static void *CDFKVOContext;
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
                                                  completionHandler:completionHandler];
     [dataTask resume];
+}
+
+- (void)handleDataModelChange:(NSNotification *)notification
+{
+    NSLog(@"change detected!");
+//    [self refreshAllSeriesArray];
+}
+
+- (NSManagedObjectContext *)createNewManagedObjectContext
+{
+    NSManagedObjectContext *managedObjectContext = nil;
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil)
+    {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator:coordinator];
+        [managedObjectContext setUndoManager:nil];
+    }
+    return managedObjectContext;
 }
 
 @end
