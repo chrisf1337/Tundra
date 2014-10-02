@@ -30,7 +30,7 @@
 
 @property (nonatomic) NSArray *viewControllers;
 
-@property (nonatomic) IBOutlet NSWindow *addSheet;
+@property (strong) IBOutlet NSWindow *addSheet;
 @property (strong) IBOutlet NSWindow *loginSheet;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
 @property (strong) IBOutlet NSView *searchView;
@@ -40,9 +40,13 @@
 @property (weak) IBOutlet NSBox *box;
 @property (weak) IBOutlet NSOutlineView *outlineView;
 
+@property NSURLSession *session;
 @property NSMutableArray *outlineSources;
 
 - (void)showAddSheet;
+- (void)attemptMALLogin:(NSString *)username password:(NSString *)password;
+
 - (IBAction)addSeries:(id)sender;
+- (IBAction)login:(id)sender;
 
 @end

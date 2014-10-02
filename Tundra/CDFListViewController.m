@@ -21,6 +21,7 @@
 #import "CDFListViewController.h"
 #import "CDFMainWindowController.h"
 #import <XMLDictionary/XMLDictionary.h>
+#import <SSKeychain/SSKeychain.h>
 #import "SeriesInfo.h"
 #import "apikeys.h"
 
@@ -71,6 +72,8 @@ static void *CDFKVOContext;
 
     [self refreshAllSeriesArray];
     // deletion code moved to pullData:
+    [SSKeychain setPassword:@"password" forService:@"Tundra MAL" account:@"optikol"];
+    NSLog(@"%@", [SSKeychain passwordForService:@"Tundra MAL" account:@"optikol"]);
 }
 
 - (IBAction)addSeries:(id)sender

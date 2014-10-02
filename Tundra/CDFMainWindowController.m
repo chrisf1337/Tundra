@@ -16,6 +16,7 @@
 #import "CDFMainWindowController.h"
 #import "NSOutlineView+Additions.h"
 #import "CDFManagingViewController.h"
+#import "apikeys.h"
 
 @interface CDFMainWindowController ()
 
@@ -37,7 +38,7 @@
     self = [super initWithWindowNibName:@"CDFMainWindowController"];
     if (self)
     {
-        self.outlineSources = [[NSMutableArray alloc] init];
+        _outlineSources = [[NSMutableArray alloc] init];
         NSMutableDictionary *item1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"List", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"All", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableDictionary *item1_2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Currently Watching", @"itemName", [NSMutableArray array], @"children", nil];
@@ -48,8 +49,10 @@
         NSMutableDictionary *item2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"Search", @"itemName", [NSMutableArray array], @"children", nil];
         NSMutableArray *item1Children = [item1 objectForKey:@"children"];
         [item1Children addObjectsFromArray:[NSArray arrayWithObjects:item1_1, item1_2, item1_3, item1_4, item1_5, item1_6, nil]];
-        [self.outlineSources addObjectsFromArray:[NSArray arrayWithObjects:item1, item2, nil]];
-        
+        [_outlineSources addObjectsFromArray:[NSArray arrayWithObjects:item1, item2, nil]];
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        config.HTTPAdditionalHeaders = @{@"User-Agent":MAL_USER_AGENT};
+        _session = [NSURLSession sessionWithConfiguration:config];
     }
     return self;
 }
@@ -64,6 +67,7 @@
     
     [self.outlineView selectItem:[self.outlineView itemAtRow:0]];
     [self.outlineView expandItem:[self.outlineView itemAtRow:0]];
+    [self showLoginSheet];
 }
 
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
@@ -71,9 +75,14 @@
     return self.managedObjectContext.undoManager;
 }
 
-- (void)showAddSheet;
+- (void)showAddSheet
 {
-    [NSApp beginSheet:self.addSheet modalForWindow:self.window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
+    [NSApp beginSheet:self.addSheet modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+}
+
+- (void)showLoginSheet
+{
+    [NSApp beginSheet:self.loginSheet modalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 
 
@@ -89,6 +98,12 @@
     [self.seriesListViewController startObservingSeries:newSeries];
     NSUInteger row = [[self.seriesListViewController.currentSeriesInfoArrayController arrangedObjects] indexOfObjectIdenticalTo:newSeries];
     [self.seriesListViewController.tableView editColumn:1 row:row withEvent:nil select:YES];
+}
+
+- (IBAction)login:(id)sender
+{
+    [NSApp endSheet:self.loginSheet];
+    [self.loginSheet orderOut:sender];
 }
 
 - (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item
@@ -142,6 +157,31 @@
     {
         self.box.contentView = self.seriesSearchViewController.view;
     }
+}
+
+- (void)attemptMALLogin:(NSString *)username password:(NSString *)password
+{
+    NSString *requestString = @"http://myanimelist.net/api/account/verify_credentials.xml ";
+    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 200)
+            {
+                NSLog(@"Successful login!");
+            }
+            else
+            {
+                NSLog(@"Login was unsuccessful.");
+            }
+        }
+    };
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
+                                                 completionHandler:completionHandler];
+    [dataTask resume];
+
 }
 
 @end
