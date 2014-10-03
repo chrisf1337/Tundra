@@ -91,57 +91,6 @@ static void *CDFKVOContext;
     [self refreshAllSeriesArray];
 }
 
-- (IBAction)pullData:(id)sender
-{
-    [self refreshAllSeriesArray];
-    for (SeriesInfo *info in self.allSeriesArray)
-    {
-        [self stopObservingSeries:info];
-        [self.managedObjectContext deleteObject:info];
-    }
-    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
-    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
-    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
-    {
-        if (!error)
-        {
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-            if (httpResponse.statusCode == 200)
-            {
-                NSError *error;
-                NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
-                nf.numberStyle = NSNumberFormatterDecimalStyle;
-                NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLData:data];
-                NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
-                for (NSDictionary *series in animeSeries)
-                {
-                    SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                           inManagedObjectContext:self.managedObjectContext];
-                    seriesInfo.name = [series objectForKey:@"series_title"];
-                    seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
-                    seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
-                    seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
-                    seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
-                    seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
-                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
-                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
-                    [self startObservingSeries:seriesInfo];
-                }
-                [self.managedObjectContext save:&error];
-                NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
-                NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
-                allSeries.entity = entity;
-                self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
-            }
-        }
-    };
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
-                                                 completionHandler:completionHandler];
-    [dataTask resume];
-}
-
 - (void)sortList
 {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
@@ -327,21 +276,12 @@ static void *CDFKVOContext;
             {
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
                 NSArray *results = [allSeriesArray filteredArrayUsingPredicate:predicate];
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                dateFormatter.dateFormat = @"yyyy-MM-dd";
                 if (results.count == 0)
                 {
                     NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
                     SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
                                                                            inManagedObjectContext:managedObjectContext];
-                    seriesInfo.name = [series objectForKey:@"series_title"];
-                    seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
-                    seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
-                    seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
-                    seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
-                    seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
-                    seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
-                    seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
+                    [seriesInfo initSeriesInfoUsingValues:series];
                 }
                 else if (results.count == 1)
                 {
@@ -349,14 +289,7 @@ static void *CDFKVOContext;
                     {
                         NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
                         SeriesInfo *seriesInfo = results[0];
-                        seriesInfo.name = [series objectForKey:@"series_title"];
-                        seriesInfo.episodesWatched = [nf numberFromString:[series objectForKey:@"my_watched_episodes"]];
-                        seriesInfo.totalEpisodes = [nf numberFromString:[series objectForKey:@"series_episodes"]];
-                        seriesInfo.status = [nf numberFromString:[series objectForKey:@"my_status"]];
-                        seriesInfo.idNumber = [nf numberFromString:[series objectForKey:@"series_animedb_id"]];
-                        seriesInfo.lastUpdated = [nf numberFromString:[series objectForKey:@"my_last_updated"]];
-                        seriesInfo.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
-                        seriesInfo.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
+                        [seriesInfo initSeriesInfoUsingValues:series];
                     }
                 }
             }
@@ -365,6 +298,48 @@ static void *CDFKVOContext;
         }
     };
     
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
+                                                 completionHandler:completionHandler];
+    [dataTask resume];
+}
+
+- (IBAction)pullData:(id)sender
+{
+    [self refreshAllSeriesArray];
+    for (SeriesInfo *info in self.allSeriesArray)
+    {
+        [self stopObservingSeries:info];
+        [self.managedObjectContext deleteObject:info];
+    }
+    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
+    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        if (!error)
+        {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (httpResponse.statusCode == 200)
+            {
+                NSError *error;
+                NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLData:data];
+                NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
+                for (NSDictionary *series in animeSeries)
+                {
+                    SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                           inManagedObjectContext:self.managedObjectContext];
+                    [seriesInfo initSeriesInfoUsingValues:series];
+                    [self startObservingSeries:seriesInfo];
+                }
+                [self.managedObjectContext save:&error];
+                NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
+                NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:self.managedObjectContext];
+                allSeries.entity = entity;
+                self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
+            }
+        }
+    };
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
                                                  completionHandler:completionHandler];
     [dataTask resume];
