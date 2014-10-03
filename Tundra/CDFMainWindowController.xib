@@ -12,8 +12,10 @@
                 <outlet property="box" destination="1SQ-2f-S40" id="LAV-tI-I68"/>
                 <outlet property="loginSheet" destination="UVu-Hq-2zr" id="EVo-rj-wP8"/>
                 <outlet property="outlineView" destination="ixm-J5-JyP" id="Piq-Tm-5Ot"/>
+                <outlet property="passwordField" destination="sT9-bo-u0A" id="IjQ-oI-1xK"/>
                 <outlet property="sidebarView" destination="yj7-oY-Gs8" id="w8v-TI-BsL"/>
                 <outlet property="splitView" destination="7Vu-ER-9cW" id="PLO-ke-y1D"/>
+                <outlet property="usernameField" destination="6y3-7Z-Awa" id="yLx-PZ-Xqz"/>
                 <outlet property="window" destination="5nh-Od-xvF" id="bp0-2A-Nr1"/>
             </connections>
         </customObject>

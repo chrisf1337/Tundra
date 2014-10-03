@@ -83,11 +83,12 @@ static void *CDFKVOContext;
 
 - (IBAction)removeSeries:(id)sender
 {
-    for (SeriesInfo *series in self.currentSeriesInfoArrayController.selectedObjects)
-    {
-        [self stopObservingSeries:series];
-    }
+//    for (SeriesInfo *series in self.currentSeriesInfoArrayController.selectedObjects)
+//    {
+//        [self stopObservingSeries:series];
+//    }
     [self.currentSeriesInfoArrayController remove:self];
+    [self refreshAllSeriesArray];
 }
 
 - (IBAction)pullData:(id)sender
@@ -95,7 +96,6 @@ static void *CDFKVOContext;
     [self refreshAllSeriesArray];
     for (SeriesInfo *info in self.allSeriesArray)
     {
-        NSLog(@"%@", info.name);
         [self stopObservingSeries:info];
         [self.managedObjectContext deleteObject:info];
     }
@@ -258,30 +258,33 @@ static void *CDFKVOContext;
     if (context == &CDFKVOContext)
     {
         id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
-        SeriesInfo *series = (SeriesInfo *)object;
-        NSLog(@"%@ %@ %@", ((SeriesInfo *)object).name, oldValue, series.episodesWatched);
-        NSMutableDictionary *seriesDict = [[NSMutableDictionary alloc] init];
-        NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
-        [entry setValue:series.episodesWatched forKey:@"episode"];
-        [entry setValue:series.status forKey:@"status"];
-        [seriesDict setValue:entry forKey:@"entry"];
-        NSString *requestString = [NSString stringWithFormat:@"http://%@:%@@myanimelist.net/api/animelist/update/19769.xml", MAL_USERNAME, MAL_PASSWORD];
-        NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        request.HTTPBody = [[NSString stringWithFormat:@"data=%@", [seriesDict XMLString]] dataUsingEncoding:NSUTF8StringEncoding];
-        request.HTTPMethod = @"POST";
-        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+        if (![oldValue isEqualTo:[object valueForKey:keyPath]] && object != nil)
         {
-            if (!error)
+            SeriesInfo *series = (SeriesInfo *)object;
+            NSLog(@"%@ %@ %@", ((SeriesInfo *)object).name, oldValue, series.episodesWatched);
+            NSMutableDictionary *seriesDict = [[NSMutableDictionary alloc] init];
+            NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
+            [entry setValue:series.episodesWatched forKey:@"episode"];
+            [entry setValue:series.status forKey:@"status"];
+            [seriesDict setValue:entry forKey:@"entry"];
+            NSString *requestString = [NSString stringWithFormat:@"http://%@:%@@myanimelist.net/api/animelist/update/19769.xml", MAL_USERNAME, MAL_PASSWORD];
+            NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+            request.HTTPBody = [[NSString stringWithFormat:@"data=%@", [seriesDict XMLString]] dataUsingEncoding:NSUTF8StringEncoding];
+            request.HTTPMethod = @"POST";
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
             {
-                NSLog(@"%@", [NSString stringWithUTF8String:data.bytes]);
-            }
-        };
-        NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
-                                                         completionHandler:completionHandler];
-        [dataTask resume];
-        NSLog(@"%@", [seriesDict XMLString]);
+                if (!error)
+                {
+                    NSLog(@"%@", [NSString stringWithUTF8String:data.bytes]);
+                }
+            };
+            NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
+                                                             completionHandler:completionHandler];
+            [dataTask resume];
+            NSLog(@"%@", [seriesDict XMLString]);
+        }
     }
     else
     {

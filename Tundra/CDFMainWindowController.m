@@ -103,6 +103,7 @@
 - (IBAction)login:(id)sender
 {
     [NSApp endSheet:self.loginSheet];
+    [self attemptMALLogin:self.usernameField.stringValue password:self.passwordField.stringValue];
     [self.loginSheet orderOut:sender];
 }
 
