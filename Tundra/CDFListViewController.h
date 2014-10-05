@@ -41,6 +41,8 @@
 @property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSTextField *statusField;
 @property (weak) IBOutlet NSButton *removeButton;
+@property (weak) IBOutlet NSImageView *imageView;
+@property (weak) IBOutlet NSProgressIndicator *imageProgressIndicator;
 
 @property (strong) NSArray *statusNames;
 

@@ -67,7 +67,7 @@
     
     [self.outlineView selectItem:[self.outlineView itemAtRow:0]];
     [self.outlineView expandItem:[self.outlineView itemAtRow:0]];
-    [self showLoginSheet];
+//    [self showLoginSheet];
 }
 
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window
