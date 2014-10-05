@@ -376,20 +376,20 @@ static void *CDFKVOContext;
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
     NSLog(@"tableViewSelectionDidChange:");
-//    if (self.tableView.numberOfSelectedRows == 1)
-//    {
-//        NSString *imageUrl = ((SeriesInfo *)self.currentSeriesInfoArrayController.selectedObjects[0]).imageUrl;
-//        NSURL *url = [NSURL URLWithString:[imageUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-//        NSURLSessionDownloadTask *downloadImageTask = [self.session downloadTaskWithURL:url
-//                                                                      completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-//                                                                          self.imageView.image = [[NSImage alloc] initWithData:[NSData dataWithContentsOfURL:location]];
-//                                                                          [self.imageProgressIndicator stopAnimation:self];
-//                                                                          [self.imageProgressIndicator setHidden:YES];
-//                                                                      }];
-//        [downloadImageTask resume];
-//        [self.imageProgressIndicator setHidden:NO];
-//        [self.imageProgressIndicator startAnimation:self];
-//    }
+    if (self.tableView.numberOfSelectedRows == 1)
+    {
+        NSString *imageUrl = ((SeriesInfo *)self.currentSeriesInfoArrayController.selectedObjects[0]).imageUrl;
+        NSURL *url = [NSURL URLWithString:[imageUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSURLSessionDownloadTask *downloadImageTask = [self.session downloadTaskWithURL:url
+                                                                      completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                                                                          self.imageView.image = [[NSImage alloc] initWithData:[NSData dataWithContentsOfURL:location]];
+                                                                          [self.imageProgressIndicator stopAnimation:self];
+                                                                          [self.imageProgressIndicator setHidden:YES];
+                                                                      }];
+        [downloadImageTask resume];
+        [self.imageProgressIndicator setHidden:NO];
+        [self.imageProgressIndicator startAnimation:self];
+    }
 }
 
 @end

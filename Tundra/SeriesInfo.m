@@ -37,6 +37,7 @@
     self.startDate = [dateFormatter dateFromString:[series objectForKey:@"my_start_date"]];
     self.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
     self.score = [nf numberFromString:[series objectForKey:@"my_score"]];
+    self.imageUrl = [series objectForKey:@"series_image"];
 }
 
 @end
