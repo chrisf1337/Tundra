@@ -32,6 +32,7 @@
 
 @property (strong) IBOutlet NSWindow *addSheet;
 @property (strong) IBOutlet NSWindow *loginSheet;
+@property (strong) IBOutlet NSWindow *preferencesWindow;
 @property (nonatomic) IBOutlet NSTextField *addedSeriesName;
 @property (weak) IBOutlet NSTextField *usernameField;
 @property (weak) IBOutlet NSTextField *passwordField;

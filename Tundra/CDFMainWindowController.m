@@ -120,38 +120,38 @@
     }
     else if (self.outlineView.selectedRow == 1)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoAllArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 1;
     }
     else if (self.outlineView.selectedRow == 2)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCurrentlyWatchingArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 1;
     }
     else if (self.outlineView.selectedRow == 3)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoPlanToWatchArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 6;
     }
     else if (self.outlineView.selectedRow == 4)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoCompletedArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 2;
     }
     else if (self.outlineView.selectedRow == 5)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoOnHoldArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 3;
     }
     else if (self.outlineView.selectedRow == 6)
     {
-        self.box.contentView = self.seriesListViewController.view;
         [self.seriesListViewController switchBindingsToArrayController:self.seriesListViewController.seriesInfoDroppedArrayController];
+        self.box.contentView = self.seriesListViewController.view;
         self.seriesListViewController.currentlySelectedStatus = 4;
     }
     else if (self.outlineView.selectedRow == self.outlineView.numberOfRows - 1)

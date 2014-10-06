@@ -13,6 +13,7 @@
                 <outlet property="loginSheet" destination="UVu-Hq-2zr" id="EVo-rj-wP8"/>
                 <outlet property="outlineView" destination="ixm-J5-JyP" id="Piq-Tm-5Ot"/>
                 <outlet property="passwordField" destination="sT9-bo-u0A" id="IjQ-oI-1xK"/>
+                <outlet property="preferencesWindow" destination="cte-gZ-hgO" id="exg-wx-15u"/>
                 <outlet property="sidebarView" destination="yj7-oY-Gs8" id="w8v-TI-BsL"/>
                 <outlet property="splitView" destination="7Vu-ER-9cW" id="PLO-ke-y1D"/>
                 <outlet property="usernameField" destination="6y3-7Z-Awa" id="yLx-PZ-Xqz"/>
@@ -175,7 +176,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="480" height="115"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="DRJ-29-8H5">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="115"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -239,7 +240,7 @@ Gw
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="480" height="195"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="Hn3-5A-zwB">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="195"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -305,6 +306,49 @@ Gw
                 </constraints>
             </view>
             <point key="canvasLocation" x="418" y="-656.5"/>
+        </window>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="cte-gZ-hgO">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="207" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="Ycf-bc-SJ8">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="11K-z9-j7j">
+                        <rect key="frame" x="20" y="228" width="440" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jNa-Ab-sdn">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="j67-h8-CIq" name="value" keyPath="values.MALUsername" id="pmq-Oc-cjZ"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-9y-ltk">
+                        <rect key="frame" x="20" y="196" width="440" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1T9-ie-olW">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="j67-h8-CIq" name="value" keyPath="values.MALPassword" id="Km3-py-GmI"/>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="11K-z9-j7j" secondAttribute="trailing" constant="20" id="2Kw-5S-2oz"/>
+                    <constraint firstItem="11K-z9-j7j" firstAttribute="leading" secondItem="Ycf-bc-SJ8" secondAttribute="leading" constant="20" id="AiU-9W-Mh0"/>
+                    <constraint firstItem="11K-z9-j7j" firstAttribute="top" secondItem="Ycf-bc-SJ8" secondAttribute="top" constant="20" id="SGl-zG-mni"/>
+                    <constraint firstAttribute="trailing" secondItem="K7R-9y-ltk" secondAttribute="trailing" constant="20" id="Yrx-AK-lnr"/>
+                    <constraint firstItem="K7R-9y-ltk" firstAttribute="leading" secondItem="Ycf-bc-SJ8" secondAttribute="leading" constant="20" id="Zfe-0K-XXd"/>
+                    <constraint firstItem="K7R-9y-ltk" firstAttribute="top" secondItem="11K-z9-j7j" secondAttribute="bottom" constant="10" id="n0t-5o-zGS"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="55" y="654"/>
         </window>
     </objects>
     <resources>

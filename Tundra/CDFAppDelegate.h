@@ -22,5 +22,6 @@
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)addSeries:(id)sender;
+- (IBAction)showPreferencesWindow:(id)sender;
 
 @end

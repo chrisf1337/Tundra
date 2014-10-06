@@ -41,9 +41,12 @@
     
     self.mainWindowController.viewControllers = @[self.mainWindowController.seriesListViewController,
                                                   self.mainWindowController.seriesSearchViewController];
-    
+
     [self.mainWindowController showWindow:self];
     self.window = self.mainWindowController.window;
+    
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"MALUsername", @"", @"MALPassword", nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.Tundra" in the user's Application Support directory.
@@ -213,9 +216,19 @@
     return NSTerminateNow;
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+    return YES;
+}
+
 - (IBAction)addSeries:(id)sender
 {
     [self.mainWindowController showAddSheet];
+}
+
+- (IBAction)showPreferencesWindow:(id)sender
+{
+    [self.mainWindowController.preferencesWindow makeKeyAndOrderFront:self];
 }
 
 @end
