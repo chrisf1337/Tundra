@@ -36,6 +36,8 @@
     self.mainWindowController.seriesSearchViewController.managedObjectModel = self.managedObjectModel;
     self.mainWindowController.seriesSearchViewController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     
+    self.mainWindowController.preferencesViewController = [[CDFPreferencesViewController alloc] init];
+    
     self.mainWindowController.seriesListViewController.mainWindowController = self.mainWindowController;
     self.mainWindowController.seriesSearchViewController.mainWindowController = self.mainWindowController;
     
@@ -44,12 +46,12 @@
 
     [self.mainWindowController showWindow:self];
     self.window = self.mainWindowController.window;
-    
-    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"MALUsername", @"", @"MALPassword", nil];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-    
-    NSLog(@"username: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALUsername"]);
-    NSLog(@"password: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALPassword"]);
+//    
+//    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"MALUsername", @"", @"MALPassword", nil];
+//    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+//    
+//    NSLog(@"username: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALUsername"]);
+//    NSLog(@"password: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALPassword"]);
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.Tundra" in the user's Application Support directory.
@@ -231,6 +233,7 @@
 
 - (IBAction)showPreferencesWindow:(id)sender
 {
+    self.mainWindowController.preferencesWindow.contentView = self.mainWindowController.preferencesViewController.view;
     [self.mainWindowController.preferencesWindow makeKeyAndOrderFront:self];
 }
 

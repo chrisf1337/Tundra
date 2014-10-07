@@ -17,6 +17,7 @@
 #import "CDFSeriesInfoArrayController.h"
 #import "CDFListViewController.h"
 #import "CDFSearchViewController.h"
+#import "CDFPreferencesViewController.h"
 #import "SeriesInfo.h"
 
 @interface CDFMainWindowController : NSWindowController <NSWindowDelegate, NSOutlineViewDelegate>
@@ -27,6 +28,7 @@
 
 @property (nonatomic) CDFListViewController *seriesListViewController;
 @property (nonatomic) CDFSearchViewController *seriesSearchViewController;
+@property (nonatomic) CDFPreferencesViewController *preferencesViewController;
 
 @property (nonatomic) NSArray *viewControllers;
 

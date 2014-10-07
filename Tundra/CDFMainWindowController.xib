@@ -315,40 +315,8 @@ Gw
             <view key="contentView" id="Ycf-bc-SJ8">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="11K-z9-j7j">
-                        <rect key="frame" x="20" y="228" width="440" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jNa-Ab-sdn">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="j67-h8-CIq" name="value" keyPath="values.MALUsername" id="pmq-Oc-cjZ"/>
-                        </connections>
-                    </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K7R-9y-ltk">
-                        <rect key="frame" x="20" y="196" width="440" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1T9-ie-olW">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="j67-h8-CIq" name="value" keyPath="values.MALPassword" id="Km3-py-GmI"/>
-                        </connections>
-                    </textField>
-                </subviews>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="11K-z9-j7j" secondAttribute="trailing" constant="20" id="2Kw-5S-2oz"/>
-                    <constraint firstItem="11K-z9-j7j" firstAttribute="leading" secondItem="Ycf-bc-SJ8" secondAttribute="leading" constant="20" id="AiU-9W-Mh0"/>
-                    <constraint firstItem="11K-z9-j7j" firstAttribute="top" secondItem="Ycf-bc-SJ8" secondAttribute="top" constant="20" id="SGl-zG-mni"/>
-                    <constraint firstAttribute="trailing" secondItem="K7R-9y-ltk" secondAttribute="trailing" constant="20" id="Yrx-AK-lnr"/>
-                    <constraint firstItem="K7R-9y-ltk" firstAttribute="leading" secondItem="Ycf-bc-SJ8" secondAttribute="leading" constant="20" id="Zfe-0K-XXd"/>
-                    <constraint firstItem="K7R-9y-ltk" firstAttribute="top" secondItem="11K-z9-j7j" secondAttribute="bottom" constant="10" id="n0t-5o-zGS"/>
-                </constraints>
             </view>
-            <point key="canvasLocation" x="55" y="654"/>
+            <point key="canvasLocation" x="36" y="807"/>
         </window>
     </objects>
     <resources>

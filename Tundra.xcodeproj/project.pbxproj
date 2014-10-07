@@ -24,6 +24,8 @@
 		8959308C19BE51C800976214 /* CDFSeriesInfoArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8959308B19BE51C800976214 /* CDFSeriesInfoArrayController.m */; };
 		896CDAAA19C2BFCF00A6734D /* CDFListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 896CDAA919C2BFCF00A6734D /* CDFListViewController.m */; };
 		89A1B6CA19DF226D0099FE4E /* SeriesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A1B6C919DF226D0099FE4E /* SeriesInfo.m */; };
+		89A1B6CD19E459660099FE4E /* CDFPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A1B6CC19E459660099FE4E /* CDFPreferencesViewController.m */; };
+		89A1B6CF19E464A70099FE4E /* CDFPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89A1B6CE19E464A70099FE4E /* CDFPreferencesView.xib */; };
 		89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */; };
 		89BF17E419C4B5C300394973 /* CDFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BF17E219C4B5C300394973 /* CDFSearchViewController.m */; };
 		89BF17E519C4B5C300394973 /* CDFSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89BF17E319C4B5C300394973 /* CDFSearchView.xib */; };
@@ -84,6 +86,9 @@
 		89A1B6C719DF22240099FE4E /* Tundra 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Tundra 8.xcdatamodel"; sourceTree = "<group>"; };
 		89A1B6C819DF226D0099FE4E /* SeriesInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesInfo.h; sourceTree = "<group>"; };
 		89A1B6C919DF226D0099FE4E /* SeriesInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesInfo.m; sourceTree = "<group>"; };
+		89A1B6CB19E459660099FE4E /* CDFPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFPreferencesViewController.h; sourceTree = "<group>"; };
+		89A1B6CC19E459660099FE4E /* CDFPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFPreferencesViewController.m; sourceTree = "<group>"; };
+		89A1B6CE19E464A70099FE4E /* CDFPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDFPreferencesView.xib; sourceTree = "<group>"; };
 		89BF17DE19C41BD000394973 /* NSOutlineView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOutlineView+Additions.h"; sourceTree = "<group>"; };
 		89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOutlineView+Additions.m"; sourceTree = "<group>"; };
 		89BF17E119C4B5C300394973 /* CDFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSearchViewController.h; sourceTree = "<group>"; };
@@ -186,6 +191,9 @@
 				89BF17DF19C41BD000394973 /* NSOutlineView+Additions.m */,
 				8959308519BE0CC200976214 /* CDFMainWindowController.h */,
 				8959308619BE0CC200976214 /* CDFMainWindowController.m */,
+				89A1B6CB19E459660099FE4E /* CDFPreferencesViewController.h */,
+				89A1B6CC19E459660099FE4E /* CDFPreferencesViewController.m */,
+				89A1B6CE19E464A70099FE4E /* CDFPreferencesView.xib */,
 				8959308719BE0CC200976214 /* CDFMainWindowController.xib */,
 				89BF17E619C4DE2300394973 /* CDFManagingViewController.h */,
 				89BF17E719C4DE2300394973 /* CDFManagingViewController.m */,
@@ -343,6 +351,7 @@
 				89D0D54019D2528B0087959B /* CDFListView.xib in Resources */,
 				8959308919BE0CC200976214 /* CDFMainWindowController.xib in Resources */,
 				8959305219BCDF7100976214 /* InfoPlist.strings in Resources */,
+				89A1B6CF19E464A70099FE4E /* CDFPreferencesView.xib in Resources */,
 				89D0D58619D784360087959B /* Tundra-icon_32.png in Resources */,
 				8959306319BCDF7200976214 /* Images.xcassets in Resources */,
 				8959305819BCDF7100976214 /* Credits.rtf in Resources */,
@@ -407,6 +416,7 @@
 				89D0D53D19D0EFDE0087959B /* CDFStatusValueTransformer.m in Sources */,
 				8959306119BCDF7200976214 /* Tundra.xcdatamodeld in Sources */,
 				89BF17E819C4DE2300394973 /* CDFManagingViewController.m in Sources */,
+				89A1B6CD19E459660099FE4E /* CDFPreferencesViewController.m in Sources */,
 				89BF17E019C41BD000394973 /* NSOutlineView+Additions.m in Sources */,
 				89BF17E419C4B5C300394973 /* CDFSearchViewController.m in Sources */,
 				89A1B6CA19DF226D0099FE4E /* SeriesInfo.m in Sources */,
