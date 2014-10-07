@@ -47,6 +47,9 @@
     
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:@"", @"MALUsername", @"", @"MALPassword", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    
+    NSLog(@"username: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALUsername"]);
+    NSLog(@"password: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"MALPassword"]);
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "edu.self.Tundra" in the user's Application Support directory.

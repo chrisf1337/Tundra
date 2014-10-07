@@ -16,6 +16,7 @@
 #import "CDFMainWindowController.h"
 #import "NSOutlineView+Additions.h"
 #import "CDFManagingViewController.h"
+#import <SSKeychain/SSKeychain.h>
 #import "apikeys.h"
 
 @interface CDFMainWindowController ()
@@ -183,6 +184,11 @@
                                                  completionHandler:completionHandler];
     [dataTask resume];
 
+}
+
+- (BOOL)windowShouldClose:(id)sender
+{
+    return YES;
 }
 
 @end

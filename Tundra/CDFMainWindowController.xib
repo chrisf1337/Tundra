@@ -25,22 +25,22 @@
         <window title="Tundra" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="5nh-Od-xvF">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="1113" height="550"/>
+            <rect key="contentRect" x="196" y="240" width="1200" height="720"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <value key="minSize" type="size" width="300" height="200"/>
             <view key="contentView" id="AgY-HJ-c67">
-                <rect key="frame" x="0.0" y="0.0" width="1113" height="550"/>
+                <rect key="frame" x="0.0" y="0.0" width="1200" height="720"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vu-ER-9cW">
-                        <rect key="frame" x="0.0" y="0.0" width="1113" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="720"/>
                         <subviews>
                             <customView id="yj7-oY-Gs8">
-                                <rect key="frame" x="0.0" y="0.0" width="203" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="219" height="720"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aer-b7-5A8">
-                                        <rect key="frame" x="0.0" y="0.0" width="203" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="720"/>
                                         <clipView key="contentView" id="VF9-u8-lJS">
                                             <rect key="frame" x="1" y="1" width="179" height="548"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="198" minWidth="16" maxWidth="1000" id="WIl-xs-DFh">
+                                                        <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="214" minWidth="16" maxWidth="1000" id="WIl-xs-DFh">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -65,7 +65,7 @@
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
                                                                 <tableCellView identifier="HeaderCell" id="nmR-Bi-kEs">
-                                                                    <rect key="frame" x="1" y="0.0" width="198" height="17"/>
+                                                                    <rect key="frame" x="1" y="0.0" width="214" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSQ-7p-pin">
@@ -82,7 +82,7 @@
                                                                     </connections>
                                                                 </tableCellView>
                                                                 <tableCellView identifier="DataCell" id="zm4-bZ-Mdt">
-                                                                    <rect key="frame" x="1" y="17" width="198" height="17"/>
+                                                                    <rect key="frame" x="1" y="17" width="214" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
                                                                         <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-Q4-WhC">
@@ -133,13 +133,13 @@
                                 </constraints>
                             </customView>
                             <customView id="bcV-rv-dPz">
-                                <rect key="frame" x="204" y="0.0" width="909" height="550"/>
+                                <rect key="frame" x="220" y="0.0" width="980" height="720"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <box autoresizesSubviews="NO" title="Box" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="1SQ-2f-S40">
-                                        <rect key="frame" x="-3" y="-4" width="915" height="556"/>
+                                        <rect key="frame" x="-3" y="-4" width="986" height="726"/>
                                         <view key="contentView">
-                                            <rect key="frame" x="0.0" y="0.0" width="915" height="556"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="986" height="726"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -170,7 +170,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="WPc-51-ScE"/>
             </connections>
-            <point key="canvasLocation" x="324.5" y="147"/>
+            <point key="canvasLocation" x="68" y="-2"/>
         </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="kdF-PX-z6V" userLabel="Add">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>

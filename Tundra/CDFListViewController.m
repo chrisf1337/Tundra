@@ -73,7 +73,6 @@ static void *CDFKVOContext;
     [self refreshAllSeriesArray];
     // deletion code moved to pullData:
     [SSKeychain setPassword:@"password" forService:@"Tundra MAL" account:@"optikol"];
-    NSLog(@"%@", [SSKeychain passwordForService:@"Tundra MAL" account:@"optikol"]);
 }
 
 - (IBAction)addSeries:(id)sender
@@ -375,7 +374,6 @@ static void *CDFKVOContext;
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
-    NSLog(@"tableViewSelectionDidChange:");
     if (self.tableView.numberOfSelectedRows == 1)
     {
         NSString *imageUrl = ((SeriesInfo *)self.currentSeriesInfoArrayController.selectedObjects[0]).imageUrl;
