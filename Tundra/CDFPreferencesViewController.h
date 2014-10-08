@@ -11,7 +11,7 @@
 
 @class CDFMainWindowController;
 
-@interface CDFPreferencesViewController : NSViewController
+@interface CDFPreferencesViewController : NSViewController <NSControlTextEditingDelegate>
 
 @property (nonatomic, weak) CDFMainWindowController *mainWindowController;
 

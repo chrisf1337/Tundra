@@ -393,11 +393,22 @@ CA
                 <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-FA-AUO">
                     <rect key="frame" x="936" y="398" width="16" height="16"/>
                 </progressIndicator>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qp2-am-zjF">
+                    <rect key="frame" x="336" y="13" width="74" height="32"/>
+                    <buttonCell key="cell" type="push" title="Fetch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hze-Od-nCr">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="fetchData:" target="-2" id="3r6-kL-chP"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="RZ5-ly-DxO" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="03F-M6-6lM"/>
                 <constraint firstItem="xP6-bo-JER" firstAttribute="top" secondItem="uU6-kr-ojt" secondAttribute="bottom" constant="8" id="07A-2h-MCI"/>
                 <constraint firstAttribute="trailing" secondItem="FrU-ET-MPz" secondAttribute="trailing" constant="23" id="10F-3I-MMU"/>
+                <constraint firstItem="qp2-am-zjF" firstAttribute="leading" secondItem="Om3-WY-Oag" secondAttribute="trailing" constant="12" id="2Wa-JQ-tpt"/>
                 <constraint firstItem="RZ5-ly-DxO" firstAttribute="top" secondItem="QaA-WU-57p" secondAttribute="top" constant="20" id="6Jy-zD-EWa"/>
                 <constraint firstItem="uU6-kr-ojt" firstAttribute="top" secondItem="QaA-WU-57p" secondAttribute="top" constant="50" id="81N-sf-08D"/>
                 <constraint firstItem="2Qc-FA-AUO" firstAttribute="leading" secondItem="FrU-ET-MPz" secondAttribute="leading" constant="29" id="ANt-2e-3p2"/>
@@ -409,6 +420,7 @@ CA
                 <constraint firstAttribute="trailing" secondItem="uU6-kr-ojt" secondAttribute="trailing" constant="115" id="WCD-Jf-5Eo"/>
                 <constraint firstItem="2Qc-FA-AUO" firstAttribute="centerY" secondItem="FrU-ET-MPz" secondAttribute="centerY" constant="0.5" id="YPM-Dg-8My"/>
                 <constraint firstItem="rsY-Jl-S7x" firstAttribute="leading" secondItem="4Si-fm-ccG" secondAttribute="trailing" constant="12" id="ai3-fP-o94"/>
+                <constraint firstAttribute="bottom" secondItem="qp2-am-zjF" secondAttribute="bottom" constant="20" id="gKJ-mr-tvY"/>
                 <constraint firstItem="2Qc-FA-AUO" firstAttribute="centerX" secondItem="FrU-ET-MPz" secondAttribute="centerX" constant="-0.5" id="hjX-ag-6ON"/>
                 <constraint firstItem="uU6-kr-ojt" firstAttribute="leading" secondItem="QaA-WU-57p" secondAttribute="leading" constant="20" id="iH6-Eu-dnM"/>
                 <constraint firstAttribute="trailing" secondItem="RZ5-ly-DxO" secondAttribute="trailing" constant="115" id="jAo-M1-Z34"/>

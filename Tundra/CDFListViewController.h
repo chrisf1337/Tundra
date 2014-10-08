@@ -49,6 +49,7 @@
 - (IBAction)addSeries:(id)sender;
 - (IBAction)removeSeries:(id)sender;
 - (IBAction)pullData:(id)sender;
+- (IBAction)fetchData:(id)sender;
 
 - (void)sortList;
 - (void)switchBindingsToArrayController:(CDFSeriesInfoArrayController *)arrayController;

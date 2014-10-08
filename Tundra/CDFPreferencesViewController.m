@@ -38,8 +38,19 @@
 - (void)loadView
 {
     [super loadView];
-    self.usernameField.stringValue = @"optikol";
-    self.passwordField.stringValue = [SSKeychain passwordForService:@"Tundra MAL" account:@"optikol"];
+    if ([SSKeychain accountsForService:@"Tundra MAL"].count == 1)
+    {
+        NSString *account = [(NSDictionary *)[SSKeychain accountsForService:@"Tundra MAL"][0] valueForKey:@"acct"];
+        NSLog(@"%@", account);
+        self.usernameField.stringValue = account;
+        self.passwordField.stringValue = [SSKeychain passwordForService:@"Tundra MAL" account:account];
+    }
+}
+
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
+    NSLog(@"%@", control);
+    return YES;
 }
 
 @end

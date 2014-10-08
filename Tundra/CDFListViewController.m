@@ -72,7 +72,6 @@ static void *CDFKVOContext;
 
     [self refreshAllSeriesArray];
     // deletion code moved to pullData:
-    [SSKeychain setPassword:@"password" forService:@"Tundra MAL" account:@"optikol"];
 }
 
 - (IBAction)addSeries:(id)sender
@@ -273,6 +272,7 @@ static void *CDFKVOContext;
             NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
             for (NSDictionary *series in animeSeries)
             {
+                allSeriesArray = [managedObjectContext executeFetchRequest:allSeries error:&error];
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
                 NSArray *results = [allSeriesArray filteredArrayUsingPredicate:predicate];
                 if (results.count == 0)
@@ -342,6 +342,13 @@ static void *CDFKVOContext;
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
                                                  completionHandler:completionHandler];
     [dataTask resume];
+}
+
+- (IBAction)fetchData:(id)sender
+{
+    [self refreshAllSeriesArray];
+    [self fetchAllSeries];
+    [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 }
 
 - (void)handleDataModelChange:(NSNotification *)notification
