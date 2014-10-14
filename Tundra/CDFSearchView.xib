@@ -41,10 +41,21 @@
                         <binding destination="-2" name="value" keyPath="self.num" id="Po0-3m-jgf"/>
                     </connections>
                 </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EXq-hf-2kl">
+                    <rect key="frame" x="20" y="504" width="604" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="cXc-Nj-HHS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="dkP-Wy-M9e" secondAttribute="centerY" constant="-25" id="4HY-xQ-CWO"/>
                 <constraint firstAttribute="centerX" secondItem="oGx-ut-A4j" secondAttribute="centerX" constant="-0.5" id="AfV-IR-fYR"/>
+                <constraint firstItem="EXq-hf-2kl" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="EtI-Sv-uoJ"/>
+                <constraint firstItem="EXq-hf-2kl" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Lny-qV-eWs"/>
+                <constraint firstAttribute="trailing" secondItem="EXq-hf-2kl" secondAttribute="trailing" constant="20" id="PWk-Jc-QAM"/>
                 <constraint firstAttribute="centerX" secondItem="dkP-Wy-M9e" secondAttribute="centerX" constant="-64.5" id="WcX-6B-dFO"/>
                 <constraint firstAttribute="centerX" secondItem="fkM-6H-WPK" secondAttribute="centerX" id="drk-YG-rlC"/>
                 <constraint firstAttribute="centerY" secondItem="oGx-ut-A4j" secondAttribute="centerY" constant="0.5" id="g7e-MS-jIt"/>

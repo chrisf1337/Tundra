@@ -85,7 +85,9 @@ static void *CDFKVOContext;
 //    {
 //        [self stopObservingSeries:series];
 //    }
+    NSError *error;
     [self.currentSeriesInfoArrayController remove:self];
+    [self.managedObjectContext save:&error];
     [self refreshAllSeriesArray];
 }
 
@@ -287,7 +289,9 @@ static void *CDFKVOContext;
                     if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
                     {
                         NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
-                        SeriesInfo *seriesInfo = results[0];
+                        [managedObjectContext deleteObject:results[0]];
+                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                               inManagedObjectContext:managedObjectContext];
                         [seriesInfo initSeriesInfoUsingValues:series];
                     }
                 }
@@ -347,6 +351,10 @@ static void *CDFKVOContext;
 - (IBAction)fetchData:(id)sender
 {
     [self refreshAllSeriesArray];
+    for (SeriesInfo *info in self.allSeriesArray)
+    {
+        [self stopObservingSeries:info];
+    }
     [self fetchAllSeries];
     [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 }
