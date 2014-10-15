@@ -68,6 +68,7 @@ static void *CDFKVOContext;
                                                object:self.managedObjectContext];
     // This hack is disgusting, but it's getting really late
     // Blame Core Data and threading shenanigans
+    [self sortList];
     [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 
     [self refreshAllSeriesArray];
@@ -267,6 +268,7 @@ static void *CDFKVOContext;
         [nc addObserver:self selector:@selector(mergeChanges:) name:NSManagedObjectContextDidSaveNotification object:managedObjectContext];
         if (!error)
         {
+            NSLog(@"fetchAllSeries");
             NSError *error;
             NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
             nf.numberStyle = NSNumberFormatterDecimalStyle;
@@ -289,15 +291,14 @@ static void *CDFKVOContext;
                     if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
                     {
                         NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
-                        [managedObjectContext deleteObject:results[0]];
-                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
-                                                                               inManagedObjectContext:managedObjectContext];
+                        SeriesInfo *seriesInfo = results[0];
                         [seriesInfo initSeriesInfoUsingValues:series];
                     }
                 }
             }
             [managedObjectContext save:&error];
-            [self sortList];
+            // sortList really screws something up with the threading
+//            [self sortList];
         }
     };
     
