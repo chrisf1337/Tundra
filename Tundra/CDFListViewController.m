@@ -61,6 +61,12 @@ static void *CDFKVOContext;
 {
     [super loadView];
     self.currentSeriesInfoArrayController = self.seriesInfoAllArrayController;
+    self.seriesArrayControllers = @[self.seriesInfoAllArrayController,
+                                    self.seriesInfoCurrentlyWatchingArrayController,
+                                    self.seriesInfoCompletedArrayController,
+                                    self.seriesInfoPlanToWatchArrayController,
+                                    self.seriesInfoOnHoldArrayController,
+                                    self.seriesInfoDroppedArrayController];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleDataModelChange:)
@@ -96,23 +102,29 @@ static void *CDFKVOContext;
 {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     
-    self.seriesInfoAllArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoAllArrayController rearrangeObjects];
-    
-    self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
-    
-    self.seriesInfoPlanToWatchArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoPlanToWatchArrayController rearrangeObjects];
-    
-    self.seriesInfoCompletedArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
-    
-    self.seriesInfoOnHoldArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoOnHoldArrayController rearrangeObjects];
-    
-    self.seriesInfoDroppedArrayController.sortDescriptors = @[sortDescriptor];
-    [self.seriesInfoDroppedArrayController rearrangeObjects];
+    for (CDFSeriesInfoArrayController *seriesArrayController in self.seriesArrayControllers)
+    {
+        seriesArrayController.sortDescriptors = @[sortDescriptor];
+        [seriesArrayController rearrangeObjects];
+    }
+//    
+//    self.seriesInfoAllArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoAllArrayController rearrangeObjects];
+//    
+//    self.seriesInfoCurrentlyWatchingArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
+//    
+//    self.seriesInfoPlanToWatchArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoPlanToWatchArrayController rearrangeObjects];
+//    
+//    self.seriesInfoCompletedArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoCurrentlyWatchingArrayController rearrangeObjects];
+//    
+//    self.seriesInfoOnHoldArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoOnHoldArrayController rearrangeObjects];
+//    
+//    self.seriesInfoDroppedArrayController.sortDescriptors = @[sortDescriptor];
+//    [self.seriesInfoDroppedArrayController rearrangeObjects];
 }
 
 - (IBAction)dumpData:(id)sender
@@ -208,7 +220,7 @@ static void *CDFKVOContext;
     if (context == &CDFKVOContext)
     {
         id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
-        if (![oldValue isEqualTo:[object valueForKey:keyPath]] && object != nil)
+        if (![oldValue isEqual:[object valueForKey:keyPath]] && object != nil)
         {
             SeriesInfo *series = (SeriesInfo *)object;
             NSLog(@"%@ %@ %@", ((SeriesInfo *)object).name, oldValue, series.episodesWatched);
@@ -288,10 +300,18 @@ static void *CDFKVOContext;
                 }
                 else if (results.count == 1)
                 {
-                    if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
+                    // MAL does not actually update my_last_updated after all changes, so we need to compare all fields of our model object
+                    // with the fetched series object
+//                    if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
+                    if (![(SeriesInfo *)results[0] isEqualToMALSeries:series])
                     {
                         NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
-                        SeriesInfo *seriesInfo = results[0];
+                        // Until I can figure out how to get the seriesInfoArrayControllers to refetch data in a threadsafe manner,
+                        // this workaround will have to suffice.
+//                        SeriesInfo *seriesInfo = results[0];
+                        [managedObjectContext deleteObject:results[0]];
+                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                               inManagedObjectContext:managedObjectContext];
                         [seriesInfo initSeriesInfoUsingValues:series];
                     }
                 }

@@ -32,6 +32,8 @@
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoOnHoldArrayController;
 @property (strong) IBOutlet CDFSeriesInfoArrayController *seriesInfoDroppedArrayController;
 
+@property (strong) NSArray *seriesArrayControllers;
+
 @property (nonatomic) CDFSeriesInfoArrayController *currentSeriesInfoArrayController;
 @property (nonatomic) int currentlySelectedStatus;
 

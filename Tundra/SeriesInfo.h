@@ -24,5 +24,6 @@
 @property (nonatomic, retain) NSNumber * score;
 
 - (void)initSeriesInfoUsingValues:(NSDictionary *)series;
+- (BOOL)isEqualToMALSeries:(NSDictionary *)series;
 
 @end
