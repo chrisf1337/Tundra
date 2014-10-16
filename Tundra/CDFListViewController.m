@@ -52,7 +52,7 @@ static void *CDFKVOContext;
         self.title = @"Series List View";
         self.statusNames = @[@"Currently Watching", @"Plan to Watch", @"Completed", @"On Hold", @"Dropped"];
         self.currentlySelectedStatus = 1;
-        [self fetchAllSeries];
+        [self initialFetchAllSeries];
     }
     return self;
 }
@@ -75,6 +75,9 @@ static void *CDFKVOContext;
     // This hack is disgusting, but it's getting really late
     // Blame Core Data and threading shenanigans
     [self sortList];
+    
+    // Need to call startObservingAllSeries here to prevent a flood of network requests stemming
+    // from faulty KVO notifications.
     [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 
     [self refreshAllSeriesArray];
@@ -319,6 +322,76 @@ static void *CDFKVOContext;
             [managedObjectContext save:&error];
             // sortList really screws something up with the threading
 //            [self sortList];
+            [self startObservingAllSeries];
+        }
+    };
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url
+                                                 completionHandler:completionHandler];
+    [dataTask resume];
+}
+
+/* 
+ * Identical to fetchAllSeries but leaves startObservingAllSeries to the main thread
+ * after a brief wait to avoid flooding MAL with spurious update requests due to
+ * faulty KVO notifications.
+ */
+- (void)initialFetchAllSeries
+{
+    NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
+    NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
+    {
+        NSManagedObjectContext *managedObjectContext = [self createNewManagedObjectContext];
+        NSFetchRequest *allSeries = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"SeriesInfo" inManagedObjectContext:managedObjectContext];
+        allSeries.entity = entity;
+        NSArray *allSeriesArray = [managedObjectContext executeFetchRequest:allSeries error:&error];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(mergeChanges:) name:NSManagedObjectContextDidSaveNotification object:managedObjectContext];
+        if (!error)
+        {
+            NSLog(@"initialFetchAllSeries");
+            NSError *error;
+            NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
+            nf.numberStyle = NSNumberFormatterDecimalStyle;
+            NSDictionary *xmlDoc = [NSDictionary dictionaryWithXMLData:data];
+            NSArray *animeSeries = [xmlDoc objectForKey:@"anime"];
+            for (NSDictionary *series in animeSeries)
+            {
+                allSeriesArray = [managedObjectContext executeFetchRequest:allSeries error:&error];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber == %@", [nf numberFromString:[series objectForKey:@"series_animedb_id"]]];
+                NSArray *results = [allSeriesArray filteredArrayUsingPredicate:predicate];
+                if (results.count == 0)
+                {
+                    NSLog(@"New series found: %@. Syncing info.", [series objectForKey:@"series_title"]);
+                    SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                           inManagedObjectContext:managedObjectContext];
+                    [seriesInfo initSeriesInfoUsingValues:series];
+                }
+                else if (results.count == 1)
+                {
+                    // MAL does not actually update my_last_updated after all changes, so we need to compare all fields of our model object
+                    // with the fetched series object
+                    //                    if ([((SeriesInfo *)results[0]).lastUpdated isLessThan:[nf numberFromString:[series objectForKey:@"my_last_updated"]]])
+                    if (![(SeriesInfo *)results[0] isEqualToMALSeries:series])
+                    {
+                        NSLog(@"Newer info for %@. Syncing info.", ((SeriesInfo *)results[0]).name);
+                        // Until I can figure out how to get the seriesInfoArrayControllers to refetch data in a threadsafe manner,
+                        // this workaround will have to suffice.
+                        //                        SeriesInfo *seriesInfo = results[0];
+                        [managedObjectContext deleteObject:results[0]];
+                        SeriesInfo *seriesInfo = [NSEntityDescription insertNewObjectForEntityForName:@"SeriesInfo"
+                                                                               inManagedObjectContext:managedObjectContext];
+                        [seriesInfo initSeriesInfoUsingValues:series];
+                    }
+                }
+            }
+            [managedObjectContext save:&error];
+            // sortList really screws something up with the threading
+            //            [self sortList];
         }
     };
     
@@ -371,13 +444,14 @@ static void *CDFKVOContext;
 
 - (IBAction)fetchData:(id)sender
 {
+    // This is super ugly
     [self refreshAllSeriesArray];
     for (SeriesInfo *info in self.allSeriesArray)
     {
         [self stopObservingSeries:info];
     }
     [self fetchAllSeries];
-    [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
+//    [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 }
 
 - (void)handleDataModelChange:(NSNotification *)notification

@@ -59,6 +59,7 @@
 - (void)stopObservingSeries:(SeriesInfo *)series;
 - (void)refreshAllSeriesArray;
 - (void)fetchAllSeries;
+- (void)initialFetchAllSeries;
 
 - (IBAction)dumpData:(id)sender;
 
