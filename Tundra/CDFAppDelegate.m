@@ -237,4 +237,16 @@
     [self.mainWindowController.preferencesWindow makeKeyAndOrderFront:self];
 }
 
+- (IBAction)focusSearchBar:(id)sender
+{
+    if (self.mainWindowController.outlineView.selectedRow == self.mainWindowController.outlineView.numberOfRows - 1)
+    {
+        
+    }
+    else
+    {
+        [self.mainWindowController.seriesListViewController.searchField selectText:self];
+    }
+}
+
 @end
