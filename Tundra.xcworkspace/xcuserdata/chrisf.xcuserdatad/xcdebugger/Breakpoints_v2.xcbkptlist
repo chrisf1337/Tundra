@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tundra/SeriesInfo.m"
-            timestampString = "435127461.837906"
+            timestampString = "435292815.561105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-isEqualToMALSeries:"
             landmarkType = "5">
          </BreakpointContent>

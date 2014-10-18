@@ -21,6 +21,7 @@
 @dynamic status;
 @dynamic totalEpisodes;
 @dynamic score;
+@dynamic synonyms;
 
 - (void)initSeriesInfoUsingValues:(NSDictionary *)series
 {
@@ -38,6 +39,9 @@
     self.endDate = [dateFormatter dateFromString:[series objectForKey:@"my_finish_date"]];
     self.score = [nf numberFromString:[series objectForKey:@"my_score"]];
     self.imageUrl = [series objectForKey:@"series_image"];
+    NSMutableArray *synonyms = [NSMutableArray arrayWithArray:[[series objectForKey:@"series_synonyms"] componentsSeparatedByString:@"; "]];
+    [synonyms removeObject:@""];
+    self.synonyms = [NSArray arrayWithArray:synonyms];
 }
 
 - (BOOL)isEqualToMALSeries:(NSDictionary *)series;

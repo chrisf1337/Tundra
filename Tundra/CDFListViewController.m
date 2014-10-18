@@ -76,8 +76,9 @@ static void *CDFKVOContext;
     // Blame Core Data and threading shenanigans
     [self sortList];
     
-    // Need to call startObservingAllSeries here to prevent a flood of network requests stemming
-    // from faulty KVO notifications.
+    // Need to call startObservingAllSeries here to prevent a flood of network
+    // requests stemming from faulty KVO notifications. Let's hope a delay of
+    // 0.3 s is long enough for Tundra to fetch all series!
     [self performSelector:@selector(startObservingAllSeries) withObject:self afterDelay:0.3];
 
     [self refreshAllSeriesArray];
@@ -141,8 +142,8 @@ static void *CDFKVOContext;
     NSLog(@"--START--");
     for (SeriesInfo *info in fetchedObjects)
     {
-        NSLog(@"%@ (%@/%@, status: %@, id: %@, last updated: %@), start: %@, end: %@", info.name, info.episodesWatched, info.totalEpisodes,
-              info.status, info.idNumber, info.lastUpdated, info.startDate, info.endDate);
+        NSLog(@"%@ (%@/%@, status: %@, id: %@, last updated: %@), start: %@, end: %@, synonyms: %@", info.name, info.episodesWatched, info.totalEpisodes,
+              info.status, info.idNumber, info.lastUpdated, info.startDate, info.endDate, info.synonyms);
     }
     NSLog(@"--END--");
 
@@ -266,6 +267,9 @@ static void *CDFKVOContext;
     self.allSeriesArray = [self.managedObjectContext executeFetchRequest:allSeries error:&error];
 }
 
+/*
+ * fetchAllSeries should be thread safe.
+ */
 - (void)fetchAllSeries
 {
     NSString *requestString = @"http://myanimelist.net/malappinfo.php?u=optikol&status=all&type=anime";
@@ -332,9 +336,9 @@ static void *CDFKVOContext;
 }
 
 /* 
- * Identical to fetchAllSeries but leaves startObservingAllSeries to the main thread
- * after a brief wait to avoid flooding MAL with spurious update requests due to
- * faulty KVO notifications.
+ * Identical to fetchAllSeries but leaves startObservingAllSeries to the main 
+ * thread after a brief wait to avoid flooding MAL with spurious update requests 
+ * due to faulty KVO notifications.
  */
 - (void)initialFetchAllSeries
 {
@@ -400,6 +404,9 @@ static void *CDFKVOContext;
     [dataTask resume];
 }
 
+/*
+ * pullData: is not thread safe! Use at your own peril!
+ */
 - (IBAction)pullData:(id)sender
 {
     [self refreshAllSeriesArray];
@@ -482,6 +489,10 @@ static void *CDFKVOContext;
     }
 }
 
+/*
+ * Updates the series image view when the selection changes. If the selection
+ * contains multiple series, fetches the first series's image.
+ */
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
     if (self.tableView.numberOfSelectedRows == 1)

@@ -331,10 +331,10 @@ CA
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </searchFieldCell>
                     <connections>
-                        <binding destination="fnw-el-TGs" name="predicate" keyPath="filterPredicate" id="3F4-0U-Rgg">
+                        <binding destination="fnw-el-TGs" name="predicate" keyPath="filterPredicate" id="GeW-pS-7Z0">
                             <dictionary key="options">
                                 <string key="NSDisplayName">predicate</string>
-                                <string key="NSPredicateFormat">name contains[cd] $value</string>
+                                <string key="NSPredicateFormat">(name contains[cd] $value) OR (subquery(synonyms, $a, $a contains[cd] $value).@count &gt; 0)</string>
                             </dictionary>
                         </binding>
                     </connections>

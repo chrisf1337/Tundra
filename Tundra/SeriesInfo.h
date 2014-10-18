@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSNumber * status;
 @property (nonatomic, retain) NSNumber * totalEpisodes;
 @property (nonatomic, retain) NSNumber * score;
+@property (nonatomic, retain) NSArray * synonyms;
 
 - (void)initSeriesInfoUsingValues:(NSDictionary *)series;
 - (BOOL)isEqualToMALSeries:(NSDictionary *)series;

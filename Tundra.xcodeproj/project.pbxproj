@@ -667,7 +667,7 @@
 				89BF17E919C55F7200394973 /* Tundra 2.xcdatamodel */,
 				8959306019BCDF7200976214 /* Tundra.xcdatamodel */,
 			);
-			currentVersion = 89A1B6C719DF22240099FE4E /* Tundra 8.xcdatamodel */;
+			currentVersion = 8963537D19F1EF6800E81BFB /* Tundra 9.xcdatamodel */;
 			path = Tundra.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
