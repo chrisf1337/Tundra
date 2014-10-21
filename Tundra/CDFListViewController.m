@@ -233,12 +233,17 @@ static void *CDFKVOContext;
             [entry setValue:series.episodesWatched forKey:@"episode"];
             [entry setValue:series.status forKey:@"status"];
             [seriesDict setValue:entry forKey:@"entry"];
-            NSString *requestString = [NSString stringWithFormat:@"http://%@:%@@myanimelist.net/api/animelist/update/19769.xml", MAL_USERNAME, MAL_PASSWORD];
+            NSString *authStr = [NSString stringWithFormat:@"%@:%@", MAL_USERNAME, MAL_PASSWORD];
+            NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
+            NSString *authValue = [NSString stringWithFormat:@"Basic %@",
+                                   [authData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+            NSString *requestString = [NSString stringWithFormat:@"http://myanimelist.net/api/animelist/update/19769.xml"];
             NSURL *url = [NSURL URLWithString:[requestString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
             request.HTTPBody = [[NSString stringWithFormat:@"data=%@", [seriesDict XMLString]] dataUsingEncoding:NSUTF8StringEncoding];
             request.HTTPMethod = @"POST";
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            [request setValue:authValue forHTTPHeaderField:@"Authorization"];
             void (^completionHandler)(NSData *, NSURLResponse *, NSError *) = ^(NSData *data, NSURLResponse *response, NSError *error)
             {
                 if (!error)
